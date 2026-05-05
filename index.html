@@ -4,740 +4,1584 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>50 Spécialistes IA pour Claude — Maîtrise IA</title>
-  <meta name="description" content="50 experts IA intégrés directement dans Claude. Marketing, vente, copywriting, stratégie, productivité. Économisez 400€+ de consulting. 57€ seulement pendant 48h." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0a0f;
-      --bg2: #111118;
-      --bg3: #16161f;
-      --purple: #7c3aed;
-      --purple-light: #8b5cf6;
-      --purple-glow: rgba(124, 58, 237, 0.25);
-      --orange: #f59e0b;
-      --orange-light: #fbbf24;
-      --orange-glow: rgba(245, 158, 11, 0.2);
-      --text: #f1f0f7;
-      --muted: #9896b0;
-      --border: rgba(255,255,255,0.07);
+      --bg: #0e0e0f;
+      --bg2: #141416;
+      --bg3: #1c1c1f;
+      --bg4: #252528;
+      --purple: #8b5cf6;
+      --purple-light: #a78bfa;
+      --purple-dim: rgba(139,92,246,0.15);
+      --purple-border: rgba(139,92,246,0.4);
+      --orange: #f97316;
+      --red: #ef4444;
+      --white: #ffffff;
+      --gray1: #f4f4f5;
+      --gray2: #a1a1aa;
+      --gray3: #71717a;
+      --gray4: #3f3f46;
+      --star: #f59e0b;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
+      font-family: 'Geist', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
+      color: var(--white);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* ── COUNTDOWN BAR ── */
-    .countdown-bar {
-      background: linear-gradient(90deg, var(--purple) 0%, #9333ea 100%);
-      text-align: center;
-      padding: 10px 20px;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-    .countdown-bar span {
-      color: var(--orange-light);
-      font-weight: 800;
-      font-size: 16px;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      padding: 90px 24px 80px;
-      text-align: center;
+    /* ========== MARQUEE BANNER ========== */
+    .marquee-wrap {
+      background: linear-gradient(90deg, #5b21b6, #7c3aed, #6d28d9);
+      padding: 10px 0;
       overflow: hidden;
+      position: relative;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -200px; left: 50%;
-      transform: translateX(-50%);
-      width: 800px; height: 500px;
-      background: radial-gradient(ellipse at center, rgba(124,58,237,0.18) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(124,58,237,0.15);
-      border: 1px solid rgba(124,58,237,0.4);
-      color: var(--purple-light);
-      padding: 6px 16px;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-
-    h1 {
-      font-size: clamp(36px, 6vw, 68px);
-      font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      max-width: 860px;
-      margin: 0 auto 24px;
-    }
-    h1 em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--purple-light), var(--orange-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-sub {
-      font-size: clamp(17px, 2.5vw, 22px);
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 48px;
-      font-weight: 400;
-    }
-    .hero-sub strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .cta-group {
+    .marquee-track {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
+      white-space: nowrap;
+      animation: marquee 28s linear infinite;
     }
-
-    .btn-primary {
+    .marquee-item {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, var(--orange) 0%, #f97316 100%);
-      color: #000;
-      font-weight: 800;
-      font-size: 18px;
-      padding: 18px 40px;
-      border-radius: 12px;
-      text-decoration: none;
-      box-shadow: 0 0 40px rgba(245,158,11,0.3), 0 4px 20px rgba(0,0,0,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      letter-spacing: -0.01em;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 60px rgba(245,158,11,0.4), 0 8px 30px rgba(0,0,0,0.5);
-    }
-    .btn-primary .arrow { font-size: 20px; }
-
-    .price-tag {
-      font-size: 15px;
-      color: var(--muted);
-    }
-    .price-tag s { color: #666; }
-    .price-tag strong { color: var(--orange-light); font-size: 17px; }
-
-    /* ── SOCIAL PROOF ── */
-    .proof-bar {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 24px;
-      text-align: center;
-    }
-    .proof-bar p {
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-    .stars { color: var(--orange); font-size: 18px; margin-bottom: 6px; }
-
-    /* ── SECTION WRAPPER ── */
-    .section { padding: 80px 24px; }
-    .section-inner { max-width: 1000px; margin: 0 auto; }
-    .section-label {
-      text-align: center;
-      color: var(--purple-light);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 14px;
-    }
-    h2 {
-      font-size: clamp(28px, 4vw, 46px);
-      font-weight: 800;
-      text-align: center;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-    h2 em {
-      font-style: normal;
-      color: var(--purple-light);
-    }
-    .section-desc {
-      text-align: center;
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 620px;
-      margin: 0 auto 56px;
-    }
-
-    /* ── PAIN POINTS ── */
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .pain-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-    }
-    .pain-card .icon { font-size: 28px; margin-bottom: 14px; }
-    .pain-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .pain-card p { color: var(--muted); font-size: 15px; }
-
-    /* ── SPECIALISTS GRID ── */
-    .specialists-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 14px;
-      margin-bottom: 36px;
-    }
-    .spec-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 16px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .spec-card:hover {
-      border-color: rgba(124,58,237,0.4);
-      transform: translateY(-2px);
-    }
-    .spec-card .emoji { font-size: 22px; margin-bottom: 8px; }
-    .spec-card .name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-    .spec-card .role { font-size: 12px; color: var(--muted); }
-
-    .see-more {
-      text-align: center;
-      color: var(--muted);
-      font-size: 15px;
-    }
-    .see-more strong { color: var(--purple-light); }
-
-    /* ── HOW IT WORKS ── */
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
-    .step {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px 24px;
-      position: relative;
-    }
-    .step-num {
-      width: 40px; height: 40px;
-      background: var(--purple-glow);
-      border: 1px solid var(--purple);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 16px;
-      color: var(--purple-light);
-      margin-bottom: 20px;
-    }
-    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-    .step p { color: var(--muted); font-size: 15px; }
-
-    /* ── VALUE ── */
-    .value-section { background: var(--bg2); }
-    .value-table {
-      width: 100%;
-      border-collapse: collapse;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    .value-table th, .value-table td {
-      padding: 18px 24px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-      font-size: 15px;
-    }
-    .value-table th {
-      background: var(--bg3);
-      font-weight: 700;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-    }
-    .value-table tr:last-child td { border-bottom: none; }
-    .value-table td:first-child { font-weight: 500; }
-    .value-table td.price-col { color: var(--muted); font-weight: 600; }
-    .value-table tr.total-row { background: rgba(124,58,237,0.06); }
-    .value-table tr.total-row td { font-weight: 800; font-size: 17px; border-top: 2px solid var(--purple); }
-    .value-table td.highlight { color: var(--orange-light); }
-
-    /* ── PRICING ── */
-    .pricing-card {
-      background: var(--bg2);
-      border: 2px solid var(--purple);
-      border-radius: 24px;
-      padding: 48px 40px;
-      max-width: 560px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 0 80px rgba(124,58,237,0.12);
-    }
-    .pricing-badge {
-      position: absolute;
-      top: -16px; left: 50%;
-      transform: translateX(-50%);
-      background: var(--orange);
-      color: #000;
-      font-weight: 800;
-      font-size: 13px;
-      padding: 6px 20px;
-      border-radius: 100px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .price-main {
-      font-size: 72px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: var(--orange-light);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .price-crossed {
-      font-size: 22px;
-      color: #555;
-      text-decoration: line-through;
-      margin-bottom: 4px;
-    }
-    .price-urgency {
-      display: inline-block;
-      background: rgba(245,158,11,0.1);
-      border: 1px solid rgba(245,158,11,0.3);
-      color: var(--orange-light);
+      gap: 12px;
+      padding: 0 32px;
       font-size: 13px;
       font-weight: 600;
-      padding: 5px 14px;
-      border-radius: 6px;
-      margin-bottom: 28px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
     }
-    .inclus {
-      list-style: none;
-      text-align: left;
+    .marquee-badge {
+      background: rgba(255,255,255,0.2);
+      padding: 2px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .marquee-dot { color: rgba(255,255,255,0.5); font-size: 18px; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 32px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-stars {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg3);
+      border: 1px solid var(--gray4);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: var(--gray2);
+    }
+    .stars { color: var(--star); font-size: 14px; letter-spacing: 1px; }
+    .hero-pre {
+      font-size: 16px;
+      color: var(--gray2);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    .hero-h1 {
+      font-size: clamp(40px, 4.8vw, 68px);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 22px;
+    }
+    .hero-subtitle {
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .hero-body {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: var(--gray2);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .hero-note {
+      font-size: 15px;
+      color: var(--gray3);
       margin-bottom: 36px;
     }
-    .inclus li {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 15px;
+    .hero-included {
+      background: var(--bg3);
+      border: 1px solid var(--gray4);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: var(--gray2);
+      margin-top: 20px;
       display: flex;
       align-items: flex-start;
       gap: 12px;
     }
-    .inclus li:last-child { border-bottom: none; }
-    .inclus .check { color: #4ade80; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
-    .garantie {
-      margin-top: 20px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .garantie strong { color: var(--text); }
+    .hero-included strong { color: var(--white); }
 
-    /* ── BIO ── */
-    .bio-section { background: var(--bg2); }
-    .bio-card {
-      display: flex;
-      gap: 40px;
-      align-items: flex-start;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px;
+    /* ========== CTA BUTTON ========== */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      background: linear-gradient(135deg, #f97316, #ef4444);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(239,68,68,0.3);
     }
-    .bio-photo {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--purple);
-      flex-shrink: 0;
-    }
-    .bio-photo-placeholder {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--purple), #9333ea);
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(239,68,68,0.4); }
+    .cta-btn-icon {
+      background: rgba(0,0,0,0.25);
+      width: 56px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 42px;
       flex-shrink: 0;
-      border: 3px solid var(--purple);
     }
-    .bio-name { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
-    .bio-title { color: var(--purple-light); font-size: 14px; font-weight: 600; margin-bottom: 18px; }
-    .bio-text { color: var(--muted); font-size: 15px; line-height: 1.7; }
-    .bio-text p + p { margin-top: 12px; }
-
-    @media (max-width: 640px) {
-      .bio-card { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
-      .pricing-card { padding: 40px 24px; }
-      h1 { font-size: 36px; }
+    .cta-btn-icon svg { width: 22px; height: 22px; color: #fff; }
+    .cta-btn-text {
+      padding: 0 28px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+    .cta-btn.large .cta-btn-icon { width: 68px; height: 68px; }
+    .cta-btn.large .cta-btn-icon svg { width: 26px; height: 26px; }
+    .cta-btn.large .cta-btn-text { font-size: 19px; padding: 0 32px; }
+    .cta-btn.flat {
+      width: 100%;
+      border-radius: 10px;
+      justify-content: center;
+    }
+    .cta-btn.flat .cta-btn-icon { display: none; }
+    .cta-btn.flat .cta-btn-text { padding: 18px 32px; font-size: 17px; }
+    .cta-guarantee {
+      font-size: 12px;
+      color: var(--gray3);
+      text-align: center;
+      margin-top: 10px;
     }
 
-    /* ── FAQ ── */
-    .faq-list { max-width: 720px; margin: 0 auto; }
-    details {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 12px;
+    /* ========== HERO VISUAL RIGHT ========== */
+    .hero-right {
+      position: relative;
+      height: 520px;
+    }
+
+    /* Purple radial glow behind 50x */
+    .hv-glow {
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,92,246,0.28) 0%, rgba(139,92,246,0.07) 50%, transparent 72%);
+      bottom: 0; left: -20px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* 50x stat + Claude badge — bottom-left */
+    .hv-stat-area {
+      position: absolute;
+      bottom: 44px; left: 24px;
+      z-index: 5;
+    }
+    .hv-stat {
+      font-size: 92px; font-weight: 800; line-height: 0.88;
+      color: var(--purple); letter-spacing: -0.04em;
+    }
+    .hv-stat-sub {
+      font-size: 13px; color: var(--gray2);
+      margin-top: 10px; line-height: 1.45;
+    }
+    .hv-claude {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 5px 13px; margin-top: 14px;
+      font-size: 13px; color: var(--gray2); font-weight: 500;
+    }
+    .hv-ast { color: #e87c5a; font-size: 15px; }
+
+    /* Floating chips */
+    .hv-chip {
+      position: absolute;
+      background: var(--bg3);
+      border: 1px solid var(--gray4);
+      border-radius: 10px; padding: 11px 14px;
+      display: flex; align-items: flex-start; gap: 10px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.5);
+      z-index: 15;
+    }
+    .hv-chip-tl { top: 2px; left: 32px; width: 168px; animation: floatA 4s ease-in-out infinite; }
+    .hv-chip-br { bottom: 118px; right: 10px; width: 160px; animation: floatA 4s ease-in-out infinite 2s; }
+    .hv-chip-tr, .hv-chip-bl { display: none; }
+    .hv-chip-title { font-size: 12px; font-weight: 700; color: var(--white); margin-top: 2px; }
+    .hv-chip-sub { font-size: 11px; color: var(--gray3); margin-top: 2px; }
+    @keyframes floatA {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+
+    /* 3D product card — center-right */
+    .hv-card {
+      position: absolute;
+      right: 16px; top: 38%;
+      transform: translateY(-50%);
+      display: flex; align-items: stretch;
+      z-index: 10;
+      filter: drop-shadow(0 32px 56px rgba(0,0,0,0.75));
+    }
+    .hv-card-front {
+      width: 340px;
+      background: linear-gradient(148deg, #1d1d27 0%, #111119 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-right: none;
+      border-radius: 10px 0 0 10px;
+      padding: 28px 26px;
+      transform: perspective(900px) rotateY(-7deg);
+      transform-origin: right center;
+      box-shadow: 0 0 60px rgba(124,58,237,0.3);
+    }
+    .hv-card-spine {
+      width: 20px;
+      background: #090910;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-left: 1px solid rgba(255,255,255,0.03);
+      border-radius: 0 5px 5px 0;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-size: 8px; color: #2a2a35;
+      letter-spacing: 0.07em;
+      display: flex; align-items: center; justify-content: center;
+      transform: perspective(700px) rotateY(6deg);
+      transform-origin: left center;
       overflow: hidden;
     }
-    summary {
-      padding: 20px 24px;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
+    .hv-card-stars { font-size: 11px; color: var(--star); margin-bottom: 14px; letter-spacing: 1px; }
+    .hv-card-stars span { color: var(--gray3); font-size: 11px; margin-left: 4px; }
+    .hv-card-title { font-size: 22px; font-weight: 900; line-height: 1.1; margin-bottom: 10px; letter-spacing: -0.03em; }
+    .hv-card-desc { font-size: 11px; color: var(--gray3); margin-bottom: 24px; line-height: 1.5; }
+    .hv-card-author {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 11px; color: var(--gray3);
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
-    summary::-webkit-details-marker { display: none; }
-    summary::after {
-      content: '+';
-      font-size: 22px;
+    .hv-card-avatar {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), #6d28d9);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 800; color: #fff; flex-shrink: 0;
+      overflow: hidden;
+    }
+    .hv-card-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ========== SECTION WRAPPERS ========== */
+    .section { padding: 80px 32px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-center { text-align: center; }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       color: var(--purple-light);
-      font-weight: 300;
-      transition: transform 0.2s;
+      margin-bottom: 16px;
     }
-    details[open] summary::after { transform: rotate(45deg); }
-    details p {
-      padding: 0 24px 20px;
-      color: var(--muted);
-      font-size: 15px;
+    .section-h2 {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .section-h2.faded { color: var(--white); }
+    .section-body {
+      font-size: 17px;
+      color: var(--gray2);
+      max-width: 640px;
+      margin: 0 auto;
       line-height: 1.7;
     }
+    .divider { border: none; border-top: 1px solid var(--gray4); margin: 0; }
 
-    /* ── FINAL CTA ── */
-    .final-cta {
-      background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(245,158,11,0.05) 100%);
-      border-top: 1px solid rgba(124,58,237,0.2);
-      padding: 100px 24px;
+    /* ========== COMPARISON TABLE ========== */
+    .comp-header {
+      text-align: center;
+      padding: 80px 32px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .comp-table-wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px 80px; }
+    .comp-col-labels {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1.5fr 1.8fr;
+      gap: 8px;
+      padding: 0 0 16px;
       text-align: center;
     }
-    .final-cta h2 { margin-bottom: 20px; }
-    .final-cta p { color: var(--muted); font-size: 17px; max-width: 500px; margin: 0 auto 40px; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 30px 24px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
+    .comp-col-labels span { font-size: 13px; color: var(--gray3); font-weight: 500; }
+    .comp-col-labels .highlight { color: var(--purple-light); font-weight: 700; }
+    .comp-row {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1.5fr 1.8fr;
+      gap: 8px;
+      margin-bottom: 8px;
+      align-items: stretch;
     }
-    footer a { color: var(--muted); text-decoration: underline; }
+    .comp-task { font-size: 15px; color: var(--gray2); padding: 20px 8px; display: flex; align-items: center; }
+    .comp-cell {
+      background: var(--bg3);
+      border-radius: 10px;
+      padding: 18px 16px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .comp-cell.winner {
+      background: rgba(139,92,246,0.08);
+      border: 1px solid var(--purple-border);
+      color: var(--gray1);
+      font-weight: 500;
+    }
 
-    /* ── TIMER ── */
-    #timer { font-weight: 800; color: #fff; font-size: 17px; }
+    /* ========== BEFORE/AFTER ========== */
+    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+    .ba-card {
+      background: var(--bg3);
+      border-radius: 16px;
+      padding: 36px 32px;
+      border: 1px solid var(--gray4);
+    }
+    .ba-card.winner { border-color: var(--purple-border); background: rgba(139,92,246,0.05); }
+    .ba-title { font-size: 20px; font-weight: 800; margin-bottom: 28px; }
+    .ba-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; font-size: 15px; color: var(--gray2); }
+    .ba-icon {
+      width: 24px; height: 24px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 12px; font-weight: 700; margin-top: 2px;
+    }
+    .ba-icon.cross { border: 1.5px solid var(--gray3); color: var(--gray3); }
+    .ba-icon.check { border: 1.5px solid var(--purple); color: var(--purple); }
+
+    /* ========== BENEFITS ACCORDION ========== */
+    .bene-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .bene-left h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .bene-left p { font-size: 16px; color: var(--gray2); margin-bottom: 36px; line-height: 1.7; }
+    .accordion-item { border-bottom: 1px solid var(--gray4); overflow: hidden; }
+    .accordion-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0; cursor: pointer; user-select: none; gap: 16px;
+    }
+    .accordion-header-left { display: flex; align-items: center; gap: 14px; }
+    .accordion-icon-wrap {
+      width: 36px; height: 36px; background: var(--bg3); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--purple-light); flex-shrink: 0;
+    }
+    .accordion-title { font-size: 16px; font-weight: 600; color: var(--white); }
+    .accordion-chevron { color: var(--gray3); transition: transform 0.25s; flex-shrink: 0; }
+    .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .accordion-body-inner { padding: 0 0 20px; font-size: 14px; color: var(--gray2); line-height: 1.7; }
+    .accordion-item.open .accordion-body { max-height: 400px; }
+
+    /* ========== QUOTE / FOMO ========== */
+    .quote-big {
+      font-size: clamp(20px, 3vw, 42px);
+      font-weight: 800; line-height: 1.15; letter-spacing: -0.02em;
+      color: var(--gray3); text-align: center; margin-bottom: 40px;
+      transition: color 0.8s;
+    }
+    .fomo-box {
+      border: 1px solid var(--purple-border); border-radius: 20px;
+      padding: 56px 48px; text-align: center; background: rgba(139,92,246,0.04);
+    }
+    .fomo-box h2 { font-size: clamp(26px, 3.5vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 24px; }
+    .fomo-box p { font-size: 17px; color: var(--gray2); margin-bottom: 12px; line-height: 1.7; }
+    .fomo-box .hl { color: var(--white); }
+
+    /* ========== TESTIMONIAL CAROUSEL ========== */
+    .testi-carousel-wrap { position: relative; overflow: hidden; margin-top: 48px; }
+    .testi-carousel { display: flex; transition: transform 0.45s ease; }
+    .testi-slide {
+      min-width: 100%; background: var(--bg3); border-radius: 20px;
+      padding: 48px 56px; text-align: center;
+    }
+    .testi-avatar {
+      width: 64px; height: 64px; border-radius: 50%; background: var(--bg4);
+      margin: 0 auto 16px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; font-weight: 800; color: var(--purple-light);
+      border: 2px solid var(--purple-border);
+    }
+    .testi-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .testi-role { font-size: 14px; color: var(--gray3); margin-bottom: 16px; }
+    .testi-stars { color: var(--star); font-size: 18px; letter-spacing: 3px; margin-bottom: 28px; }
+    .testi-quote { font-size: 18px; color: var(--gray1); line-height: 1.7; max-width: 700px; margin: 0 auto; font-style: italic; }
+    .testi-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1.5px solid var(--purple-border); background: transparent;
+      color: var(--purple-light); cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+      transition: background 0.2s;
+    }
+    .testi-nav:hover { background: var(--purple-dim); }
+    .testi-nav.prev { left: -22px; }
+    .testi-nav.next { right: -22px; }
+    .testi-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
+    .testi-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray4); cursor: pointer; transition: background 0.2s; }
+    .testi-dot.active { background: var(--purple); }
+
+    /* ========== DONUT CHART ========== */
+    .donut-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .donut-left h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .donut-ann-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--gray2); margin-bottom: 14px; }
+    .donut-ann-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
+
+    /* ========== SPECIALISTS ========== */
+    .spec-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }
+    .spec-left h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .spec-left p { font-size: 16px; color: var(--gray2); margin-bottom: 32px; line-height: 1.7; }
+    .tag-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: var(--bg3); border: 1px solid var(--gray4); border-radius: 6px; padding: 4px 10px; font-size: 13px; color: var(--gray2); }
+
+    /* ========== REVIEWS ========== */
+    .reviews-grid { columns: 3; column-gap: 16px; margin-top: 48px; }
+    .review-card {
+      break-inside: avoid; background: var(--bg3); border-radius: 14px;
+      padding: 22px; margin-bottom: 16px; border: 1px solid var(--gray4);
+    }
+    .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .review-avatar {
+      width: 38px; height: 38px; border-radius: 50%; background: var(--bg4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: var(--purple-light); flex-shrink: 0;
+    }
+    .review-name { font-size: 14px; font-weight: 700; }
+    .review-stars { color: var(--star); font-size: 12px; letter-spacing: 1px; margin-bottom: 10px; }
+    .review-text { font-size: 14px; color: var(--gray2); line-height: 1.6; }
+
+    /* ========== PRICING ========== */
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+    .pricing-card {
+      background: var(--bg3); border: 1px solid var(--gray4);
+      border-radius: 20px; padding: 36px 32px; position: relative;
+    }
+    .pricing-card.best { border-color: var(--purple); background: rgba(139,92,246,0.05); }
+    .best-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+      color: #fff; font-size: 12px; font-weight: 700;
+      padding: 4px 18px; border-radius: 100px; letter-spacing: 0.05em;
+      text-transform: uppercase; white-space: nowrap;
+    }
+    .pricing-name { font-size: 16px; font-weight: 700; color: var(--gray2); margin-bottom: 12px; }
+    .pricing-price-wrap { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+    .pricing-price { font-size: 52px; font-weight: 900; letter-spacing: -0.02em; }
+    .pricing-original { font-size: 18px; color: var(--gray3); text-decoration: line-through; }
+    .pricing-discount { background: var(--purple-dim); color: var(--purple-light); font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
+    .pricing-sub { font-size: 13px; color: var(--gray3); margin-bottom: 28px; }
+    .pricing-features { margin-bottom: 32px; }
+    .pricing-feat { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 14px; color: var(--gray2); }
+    .feat-check {
+      width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--purple);
+      color: var(--purple); display: flex; align-items: center; justify-content: center;
+      font-size: 11px; flex-shrink: 0; margin-top: 2px;
+    }
+    .pricing-guarantee { font-size: 12px; color: var(--gray3); text-align: center; margin-top: 12px; font-style: italic; }
+
+    /* ========== FAQ ========== */
+    .faq-item { border-bottom: 1px solid var(--gray4); }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; cursor: pointer; font-size: 16px; font-weight: 600;
+      color: var(--white); gap: 20px; user-select: none;
+    }
+    .faq-chevron { color: var(--gray3); transition: transform 0.25s; flex-shrink: 0; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-a-inner { padding: 0 0 22px; font-size: 15px; color: var(--gray2); line-height: 1.75; }
+    .faq-item.open .faq-a { max-height: 400px; }
+
+    /* ========== AUTHOR ========== */
+    .author-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start; }
+    .author-avatar {
+      width: 180px; height: 180px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), #6d28d9);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 64px; font-weight: 900; color: #fff;
+      border: 3px solid var(--purple-border); overflow: hidden;
+    }
+    .author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .author-name { font-size: 28px; font-weight: 800; margin-bottom: 6px; }
+    .author-handle { font-size: 14px; color: var(--purple-light); margin-bottom: 20px; }
+    .author-bio { font-size: 16px; color: var(--gray2); line-height: 1.8; }
+
+    /* ========== SCROLL ANIMATIONS ========== */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .bene-inner { grid-template-columns: 1fr; }
+      .spec-inner { grid-template-columns: 1fr; }
+      .donut-inner { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .reviews-grid { columns: 1; }
+      .author-inner { grid-template-columns: 1fr; text-align: center; }
+      .author-avatar { margin: 0 auto; }
+      .comp-row { grid-template-columns: 1fr; }
+      .comp-col-labels { display: none; }
+      .comp-task { display: none; }
+
+      /* Hero right — mobile layout */
+      .hero-right {
+        display: block !important;
+        position: relative;
+        height: 500px;
+        width: 100%;
+        margin-top: 8px;
+      }
+      .hv-card {
+        right: 50%;
+        top: 42%;
+        transform: translate(50%, -50%);
+      }
+      .hv-card-front {
+        width: 190px;
+        padding: 18px 16px;
+        box-shadow: 0 0 40px rgba(124,58,237,0.25);
+      }
+      .hv-chip-tr, .hv-chip-bl { display: flex; }
+      .hv-chip-tl { top: -16px; left: 8px; width: 140px; }
+      .hv-chip-tr { top: -16px; right: 8px; width: 140px; animation: floatA 4s ease-in-out infinite 1s; position: absolute; background: var(--bg3); border: 1px solid var(--gray4); border-radius: 10px; padding: 11px 14px; align-items: flex-start; gap: 10px; box-shadow: 0 10px 28px rgba(0,0,0,0.5); z-index: 15; }
+      .hv-chip-bl { bottom: 155px; left: 8px; width: 140px; animation: floatA 4s ease-in-out infinite 1.5s; position: absolute; background: var(--bg3); border: 1px solid var(--gray4); border-radius: 10px; padding: 11px 14px; align-items: flex-start; gap: 10px; box-shadow: 0 10px 28px rgba(0,0,0,0.5); z-index: 15; }
+      .hv-chip-br { bottom: 155px; right: 8px; width: 140px; }
+      .hv-stat-area { bottom: 16px; left: 16px; }
+      .hv-stat { font-size: 72px; }
+      .hv-glow {
+        width: 260px; height: 260px;
+        bottom: -10px; left: -20px;
+        border: 1px solid rgba(139,92,246,0.18);
+      }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 48px 20px 40px; }
+      .section { padding: 60px 20px; }
+      .testi-slide { padding: 32px 24px; }
+      .testi-nav.prev { left: 0; }
+      .testi-nav.next { right: 0; }
+      .fomo-box { padding: 36px 24px; }
+    }
+    /* ========== AUTOMATE SECTION ========== */
+    .automate-wrap { max-width: 1100px; margin: 0 auto; padding: 80px 32px; }
+    .automate-stage {
+      position: relative; display: flex; align-items: center;
+      justify-content: center; min-height: 480px; margin-top: 60px; gap: 0;
+    }
+    .mac-outer {
+      position: relative; z-index: 5; flex-shrink: 0;
+      opacity: 0; transform: scale(0.95);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .mac-outer.visible { opacity: 1; transform: scale(1); }
+    .mac-body {
+      width: 400px; background: #1e1e24;
+      border-radius: 12px 12px 6px 6px;
+      border: 1.5px solid rgba(255,255,255,0.12); overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .mac-titlebar {
+      background: #2a2a32; padding: 10px 14px;
+      display: flex; align-items: center; gap: 7px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .mac-dot { width: 11px; height: 11px; border-radius: 50%; }
+    .mac-dot.red { background: #ff5f57; }
+    .mac-dot.yellow { background: #febc2e; }
+    .mac-dot.green { background: #28c840; }
+    .mac-screen {
+      background: #0d0d12; padding: 18px 18px 12px;
+      min-height: 220px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .mac-msgs { display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: 12px; }
+    .mac-msg-user {
+      align-self: flex-end; background: var(--purple); color: #fff;
+      padding: 8px 14px; border-radius: 14px 14px 3px 14px;
+      font-size: 11px; max-width: 75%;
+    }
+    .mac-msg-ai {
+      align-self: flex-start; background: #1d1d27; color: var(--gray2);
+      padding: 10px 14px; border-radius: 3px 14px 14px 14px;
+      font-size: 11px; max-width: 88%; line-height: 1.55;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .mac-typing { display: flex; gap: 4px; align-items: center; padding: 4px 0; }
+    .mac-typing span {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--purple-light);
+      animation: blink 1.2s ease-in-out infinite;
+    }
+    .mac-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .mac-typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes blink { 0%,80%,100% { opacity: 0.2; } 40% { opacity: 1; } }
+    .mac-inputbar {
+      background: #18181f; border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 10px 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .mac-input-fake {
+      flex: 1; background: #2a2a35; border-radius: 8px;
+      padding: 7px 12px; font-size: 11px; color: var(--gray3);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .mac-send {
+      width: 28px; height: 28px; border-radius: 8px; background: var(--purple);
+      display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px;
+    }
+    .mac-base {
+      width: 100%; height: 14px;
+      background: linear-gradient(180deg, #252530 0%, #1a1a22 100%);
+      border-radius: 0 0 4px 4px; border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .mac-stand {
+      width: 110px; height: 12px; background: #16161e; margin: 0 auto;
+      border-radius: 0 0 8px 8px; border: 1px solid rgba(255,255,255,0.06); border-top: none;
+    }
+    .auto-bubbles-left, .auto-bubbles-right {
+      display: flex; flex-direction: column; gap: 14px;
+      position: absolute; top: 50%; transform: translateY(-50%);
+    }
+    .auto-bubbles-left { left: 0; max-width: 250px; }
+    .auto-bubbles-right { right: 0; max-width: 250px; }
+    .auto-bubble {
+      background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px; padding: 12px 18px; font-size: 12.5px;
+      color: var(--gray2); display: flex; align-items: flex-start; gap: 10px;
+      line-height: 1.45; text-align: left; opacity: 0;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .auto-bubbles-left .auto-bubble { transform: translateX(-24px); }
+    .auto-bubbles-right .auto-bubble { transform: translateX(24px); }
+    .auto-bubble.visible { opacity: 1; transform: translateX(0); }
+    .auto-bubble-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    @media (max-width: 768px) {
+      .automate-stage { flex-direction: column; min-height: auto; gap: 24px; padding: 0; }
+      .auto-bubbles-left, .auto-bubbles-right {
+        position: static; transform: none; max-width: 100%; width: 100%;
+      }
+      .mac-body { width: 100%; }
+      .auto-bubble { border-radius: 16px; }
+      .auto-bubbles-left .auto-bubble, .auto-bubbles-right .auto-bubble { transform: translateY(16px); }
+      .auto-bubble.visible { transform: translateY(0); }
+    }
+
+    /* ========== SECTION A — DAILY PARTNER ========== */
+    .daily-section { background: var(--bg); }
+    .daily-wrap {
+      max-width: 1100px; margin: 0 auto; padding: 80px 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .daily-title {
+      font-size: clamp(30px, 3.8vw, 50px); font-weight: 900;
+      line-height: 0.95; letter-spacing: -0.03em; color: var(--white); margin-bottom: 24px;
+    }
+    .daily-body { font-size: clamp(15px, 1.6vw, 18px); color: var(--gray2); line-height: 1.75; }
+    .cowork-mock {
+      background: #111118; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.65);
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .cowork-mock.visible { opacity: 1; transform: translateY(0); }
+    .cowork-titlebar {
+      background: #1a1a24; padding: 10px 16px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .cowork-mock-inner { display: flex; min-height: 300px; }
+    .cowork-sidebar {
+      width: 148px; border-right: 1px solid rgba(255,255,255,0.07);
+      padding: 10px 0; flex-shrink: 0;
+    }
+    .cowork-sidebar-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 7px 12px; font-size: 11px; color: var(--gray3);
+    }
+    .cowork-sidebar-item.active {
+      background: rgba(139,92,246,0.12); color: var(--white);
+      border-left: 2px solid var(--purple);
+    }
+    .cowork-main { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .cowork-prompt-card {
+      background: #1a1a27; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px; padding: 12px 14px;
+    }
+    .cowork-prompt-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.25);
+      border-radius: 100px; padding: 2px 10px; font-size: 10px; color: var(--purple-light);
+      margin-bottom: 8px; font-weight: 600;
+    }
+    .cowork-prompt-text { font-size: 11px; color: var(--gray3); line-height: 1.5; }
+    .cowork-inputbar {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 10px 14px; display: flex; gap: 8px;
+    }
+    .cowork-input-fake {
+      flex: 1; background: #1d1d27; border-radius: 8px; padding: 7px 12px;
+      font-size: 11px; color: var(--gray3); border: 1px solid rgba(255,255,255,0.07);
+    }
+    .cowork-send {
+      width: 28px; height: 28px; background: var(--purple); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; flex-shrink: 0;
+    }
+    @media (max-width: 900px) {
+      .daily-wrap { grid-template-columns: 1fr; gap: 36px; }
+      .cowork-sidebar { display: none; }
+    }
+
+    /* ========== SECTION B — 3 FEATURE CARDS ========== */
+    .cards3-wrap { max-width: 780px; margin: 0 auto; padding: 80px 32px; }
+    .cards3-title {
+      font-size: clamp(26px, 3.5vw, 42px); font-weight: 900;
+      line-height: 0.95; letter-spacing: -0.03em; color: var(--white);
+      margin-bottom: 48px; text-align: center;
+    }
+    .feat-card {
+      background: #111118; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 36px 36px 32px; margin-bottom: 20px;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .feat-card.visible { opacity: 1; transform: translateY(0); }
+    .feat-card-title {
+      font-size: clamp(18px, 2.2vw, 24px); font-weight: 800;
+      line-height: 1.2; letter-spacing: -0.02em; color: var(--white); margin-bottom: 14px;
+    }
+    .feat-card-body { font-size: 15px; color: var(--gray3); line-height: 1.75; margin-bottom: 24px; }
+    .feat-pills { display: flex; flex-direction: column; gap: 10px; }
+    .feat-pill {
+      background: #1e1e28; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px; padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px;
+      font-size: 13px; color: var(--gray1); line-height: 1.4;
+    }
+    .feat-pill-icon { font-size: 16px; flex-shrink: 0; }
+    .cards3-cta { text-align: center; margin-top: 48px; }
+    @media (max-width: 768px) {
+      .cards3-wrap { padding: 60px 20px; }
+      .feat-card { padding: 26px 22px; }
+    }
+
   </style>
 </head>
 <body>
 
-<!-- COUNTDOWN BAR -->
-<div class="countdown-bar">
-  🔥 Prix de lancement : <span>57€</span> au lieu de 97€ — expire dans <span id="timer">23:59:47</span>
+<!-- ===== SCROLLING BANNER ===== -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="marquee-badge">LANCEMENT 48H</span><span>50 Spécialistes IA pour Claude</span><span class="marquee-dot">·</span></div>
+    <div class="marquee-item"><span class="marquee-badge">41% OFF</span><span>Accès à vie — sans abonnement</span><span class="marquee-dot">·</span></div>
+    <div class="marquee-item"><span class="marquee-badge">LANCEMENT 48H</span><span>50 Spécialistes IA pour Claude</span><span class="marquee-dot">·</span></div>
+    <div class="marquee-item"><span class="marquee-badge">41% OFF</span><span>Accès à vie — sans abonnement</span><span class="marquee-dot">·</span></div>
+    <div class="marquee-item"><span class="marquee-badge">LANCEMENT 48H</span><span>50 Spécialistes IA pour Claude</span><span class="marquee-dot">·</span></div>
+    <div class="marquee-item"><span class="marquee-badge">41% OFF</span><span>Accès à vie — sans abonnement</span><span class="marquee-dot">·</span></div>
+    <div class="marquee-item"><span class="marquee-badge">LANCEMENT 48H</span><span>50 Spécialistes IA pour Claude</span><span class="marquee-dot">·</span></div>
+    <div class="marquee-item"><span class="marquee-badge">41% OFF</span><span>Accès à vie — sans abonnement</span><span class="marquee-dot">·</span></div>
+  </div>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="badge">✦ Nouveau plugin Claude</div>
-  <h1>50 Experts IA intégrés dans<br /><em>Claude</em> — activables en 1 clic</h1>
-  <p class="hero-sub">
-    Marketing, vente, copywriting, stratégie, productivité.<br />
-    <strong>L'équivalent de 400€+ de consulting IA</strong> — dans votre poche, pour toujours.
-  </p>
-  <div class="cta-group">
-    <a href="https://maitrise-ia.lemonsqueezy.com/checkout/buy/a786543b-261d-4e82-92e9-b73cbf96e2a4" class="btn-primary">
-      Obtenir les 50 Spécialistes <span class="arrow">→</span>
-    </a>
-    <p class="price-tag">
-      <s>97€</s> → <strong>57€ pendant 48h</strong> · Accès immédiat · Paiement sécurisé
-    </p>
-  </div>
-</section>
-
-<!-- SOCIAL PROOF BAR -->
-<div class="proof-bar">
-  <div class="stars">★★★★★</div>
-  <p>Déjà utilisé par des entrepreneurs francophones · Accès instantané après paiement</p>
-</div>
-
-<!-- PAIN POINTS -->
-<section class="section">
-  <div class="section-inner">
-    <p class="section-label">Le problème</p>
-    <h2>Claude est puissant.<br />Mais sans les bons prompts,<br />vous <em>gaspillez</em> son potentiel.</h2>
-    <p class="section-desc">Vous obtenez des réponses génériques. Pas d'expert dédié à votre problème.</p>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="icon">😩</div>
-        <h3>Résultats trop génériques</h3>
-        <p>Claude vous donne des réponses correctes mais pas expertes. Il lui manque le contexte de votre métier.</p>
+<!-- ===== HERO ===== -->
+<section>
+  <div class="hero">
+    <div class="hero-left reveal">
+      <div class="hero-stars">
+        <span class="stars">★★★★★</span>
+        <span>4.9 · Entrepreneurs francophones</span>
       </div>
-      <div class="pain-card">
-        <div class="icon">⏳</div>
-        <h3>Des heures à formuler les bons prompts</h3>
-        <p>Vous passez plus de temps à paramétrer Claude qu'à travailler. C'est à l'envers.</p>
-      </div>
-      <div class="pain-card">
-        <div class="icon">💸</div>
-        <h3>Pas de consultant IA à votre budget</h3>
-        <p>Un expert copywriting ou stratégie facture 300-500€/h. Vous ne pouvez pas vous le payer.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SOLUTION -->
-<section class="section" style="background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="section-inner">
-    <p class="section-label">La solution</p>
-    <h2>50 Spécialistes IA.<br />Chacun expert dans <em>son domaine</em>.</h2>
-    <p class="section-desc">Activez le bon expert selon votre besoin. Il connaît son métier sur le bout des doigts — et travaille pour vous 24h/24.</p>
-    <div class="specialists-grid">
-      <div class="spec-card"><div class="emoji">✍️</div><div class="name">Hugo</div><div class="role">Copywriter stratégique</div></div>
-      <div class="spec-card"><div class="emoji">📱</div><div class="name">Stella</div><div class="role">Social Media Manager</div></div>
-      <div class="spec-card"><div class="emoji">📈</div><div class="name">Dimarko</div><div class="role">Marketing digital</div></div>
-      <div class="spec-card"><div class="emoji">🎯</div><div class="name">Blaze</div><div class="role">Tunnel de vente</div></div>
-      <div class="spec-card"><div class="emoji">🤝</div><div class="name">Aurora</div><div class="role">Négociation commerciale</div></div>
-      <div class="spec-card"><div class="emoji">🔍</div><div class="name">Sophie</div><div class="role">Études de marché</div></div>
-      <div class="spec-card"><div class="emoji">📧</div><div class="name">Juno</div><div class="role">Email marketing</div></div>
-      <div class="spec-card"><div class="emoji">💼</div><div class="name">Bobby</div><div class="role">Business opérations</div></div>
-      <div class="spec-card"><div class="emoji">🎬</div><div class="name">Leo</div><div class="role">Scripts YouTube viraux</div></div>
-      <div class="spec-card"><div class="emoji">📊</div><div class="name">Emmi</div><div class="role">Excel & données</div></div>
-      <div class="spec-card"><div class="emoji">🧲</div><div class="name">Theo</div><div class="role">Landing pages</div></div>
-      <div class="spec-card"><div class="emoji">🏷️</div><div class="name">Oliver</div><div class="role">Stratégie de prix</div></div>
-    </div>
-    <p class="see-more">Et <strong>38 autres spécialistes</strong> : branding, podcast, SEO, LinkedIn, Instagram, productivité, formation, gestion des risques…</p>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section">
-  <div class="section-inner">
-    <p class="section-label">Comment ça marche</p>
-    <h2>Installé en <em>3 minutes</em>.<br />Opérationnel pour toujours.</h2>
-    <p class="section-desc">Pas besoin d'être développeur. Pas de configuration complexe.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Achetez et téléchargez</h3>
-        <p>Vous recevez instantanément vos 50 fichiers spécialistes après le paiement.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Importez dans Claude</h3>
-        <p>Glissez-déposez les fichiers dans Claude Cowork en 30 secondes. C'est tout.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Activez le bon expert</h3>
-        <p>Dites à Claude "agis comme Hugo le copywriter" — il devient instantanément un expert.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VALUE TABLE -->
-<section class="section value-section" style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="section-inner">
-    <p class="section-label">Valeur réelle</p>
-    <h2>Ce que vous obtenez vaut<br /><em>bien plus</em> que 57€</h2>
-    <p class="section-desc">Comparé au tarif d'un consultant humain dans chaque domaine :</p>
-    <table class="value-table">
-      <thead>
-        <tr>
-          <th>Ce que vous obtenez</th>
-          <th class="price-col">Valeur marché</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Hugo — Copywriter stratégique (1 session)</td><td class="price-col">80€+</td></tr>
-        <tr><td>Aurora — Coach en négociation commerciale</td><td class="price-col">60€+</td></tr>
-        <tr><td>Sophie — Étude de marché sur mesure</td><td class="price-col">150€+</td></tr>
-        <tr><td>Juno — Campagne email complète</td><td class="price-col">70€+</td></tr>
-        <tr><td>Blaze — Architecture de tunnel de vente</td><td class="price-col">100€+</td></tr>
-        <tr><td>+ 45 autres spécialistes IA</td><td class="price-col">→ 400€+ total</td></tr>
-        <tr class="total-row">
-          <td>Total valeur réelle</td>
-          <td class="highlight">400€+</td>
-        </tr>
-        <tr class="total-row">
-          <td>Votre prix aujourd'hui</td>
-          <td class="highlight">57€ 🔥</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="section">
-  <div class="section-inner">
-    <p class="section-label">Tarif</p>
-    <h2>Une offre. Un prix. <em>48h.</em></h2>
-    <p class="section-desc">Pas d'abonnement. Pas de frais cachés. Accès à vie.</p>
-    <div class="pricing-card">
-      <div class="pricing-badge">🔥 Prix de lancement 48h</div>
-      <p class="price-crossed">97€</p>
-      <p class="price-main">57€</p>
-      <p class="price-urgency">⏱ Expire dans <span id="timer2">23:59:47</span></p>
-      <ul class="inclus">
-        <li><span class="check">✓</span><span><strong>50 Spécialistes IA</strong> — experts dans leur domaine, en français</span></li>
-        <li><span class="check">✓</span><span><strong>Accès immédiat</strong> par email après paiement</span></li>
-        <li><span class="check">✓</span><span><strong>Mises à jour gratuites</strong> — les spécialistes évoluent avec Claude</span></li>
-        <li><span class="check">✓</span><span><strong>Guide d'installation</strong> en vidéo (3 minutes)</span></li>
-        <li><span class="check">✓</span><span><strong>Compatible Claude Cowork</strong> — desktop Mac & Windows</span></li>
-        <li><span class="check">✓</span><span><strong>Accès à vie</strong> — vous achetez une fois, c'est pour toujours</span></li>
-      </ul>
-      <a href="https://maitrise-ia.lemonsqueezy.com/checkout/buy/a786543b-261d-4e82-92e9-b73cbf96e2a4" class="btn-primary" style="width:100%;justify-content:center;font-size:17px;">
-        Obtenir les 50 Spécialistes — 57€ <span class="arrow">→</span>
+      <p class="hero-pre">Vous utilisez Claude — mais pas encore à son plein potentiel ?</p>
+      <h1 class="hero-h1">Transformez Claude en une équipe IA haute performance.</h1>
+      <p class="hero-subtitle">50 Spécialistes pour multiplier votre production par 10 et réduire vos coûts de 50%</p>
+      <p class="hero-body">Un spécialiste pour chaque partie de votre business. Votre responsable réseaux sociaux, copywriter, stratège, coach commercial, analyste, expert LinkedIn et 44 autres.</p>
+      <p class="hero-note">Un paiement unique. Pas d'abonnement. Résultats dès le premier message.</p>
+      <a href="#pricing" class="cta-btn large">
+        <span class="cta-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+        <span class="cta-btn-text">Obtenir l'accès immédiat</span>
       </a>
-      <p class="garantie">🔒 Paiement 100% sécurisé · <strong>Satisfait ou remboursé 7 jours</strong></p>
+      <p class="cta-guarantee" style="margin-top:12px;">Satisfait ou remboursé 7 jours — zéro risque.</p>
+      <div class="hero-included">
+        <span>🔒</span>
+        <div><strong>INCLUS :</strong> Guide d'installation vidéo (3 min) · Mises à jour gratuites · Compatible Claude Cowork Mac &amp; Windows · Accès à vie</div>
+      </div>
+    </div>
+    <div class="hero-right reveal reveal-delay-2">
+      <div class="hv-glow"></div>
+      <div class="hv-stat-area">
+        <div class="hv-stat">50x</div>
+        <p class="hv-stat-sub">votre expertise,<br>activable en 1 clic</p>
+        <div class="hv-claude"><span class="hv-ast">✳</span> Claude</div>
+      </div>
+      <div class="hv-chip hv-chip-tl">
+        <span style="font-size:18px">🎯</span>
+        <div><div class="hv-chip-title">50 Spécialistes</div><div class="hv-chip-sub">Pré-configurés par domaine</div></div>
+      </div>
+      <div class="hv-chip hv-chip-tr">
+        <span style="font-size:18px">✨</span>
+        <div><div class="hv-chip-title">Résultats dès J1</div><div class="hv-chip-sub">Dès le 1er message</div></div>
+      </div>
+      <div class="hv-card">
+        <div class="hv-card-front">
+          <div class="hv-card-stars">★★★★★ <span>4.9</span></div>
+          <h3 class="hv-card-title">50 Spécialistes IA pour Claude</h3>
+          <p class="hv-card-desc">L'équipe d'experts IA complète, en français</p>
+          <div class="hv-card-author">
+            <div class="hv-card-avatar"><img src="arnaud.jpg" alt="A" onerror="this.style.display='none';this.parentElement.textContent='A';" /></div>
+            Par Arnaud Aka — Maîtrise IA
+          </div>
+        </div>
+        <div class="hv-card-spine">50 Spécialistes IA pour Claude — par Arnaud Aka</div>
+      </div>
+      <div class="hv-chip hv-chip-bl">
+        <span style="font-size:18px">🔒</span>
+        <div><div class="hv-chip-title">Accès à vie</div><div class="hv-chip-sub">Sans abonnement</div></div>
+      </div>
+      <div class="hv-chip hv-chip-br">
+        <span style="font-size:18px">⚡</span>
+        <div><div class="hv-chip-title">Installation 30 sec</div><div class="hv-chip-sub">Glisser-déposer</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BIO -->
-<section class="section bio-section" style="border-top: 1px solid var(--border);">
-  <div class="section-inner">
-    <p class="section-label">À propos</p>
-    <h2>Créé par <em>Arnaud Aka</em><br />fondateur de Maîtrise IA</h2>
-    <br />
-    <div class="bio-card">
-      <img src="arnaud-photo.jpg" alt="Arnaud Aka" class="bio-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-      <div class="bio-photo-placeholder" style="display:none">👤</div>
-      <div>
-        <p class="bio-name">Arnaud Aka</p>
-        <p class="bio-title">Fondateur · Maîtrise IA</p>
-        <div class="bio-text">
-          <p>J'aide les entrepreneurs francophones à maîtriser Claude pour gagner du temps, produire plus, et générer plus de revenus — sans passer des heures à apprendre la technique.</p>
-          <p>Après avoir testé des dizaines d'approches, j'ai créé les 50 Spécialistes pour vous donner accès à un niveau d'expertise IA que personne n'avait encore rendu aussi simple à utiliser en français.</p>
-          <p>Ce n'est pas un prompt générique. Chaque spécialiste a été conçu pour performer sur des cas réels d'entrepreneurs.</p>
+<!-- ===== COMPARISON TABLE ===== -->
+<hr class="divider" />
+<div class="comp-header reveal">
+  <p class="section-label">La différence</p>
+  <h2 class="section-h2 faded">Voilà la différence entre un utilisateur Claude ordinaire et quelqu'un qui opère avec 50 Spécialistes. Ce n'est pas une question de temps. C'est une question de niveau.</h2>
+</div>
+<div class="comp-table-wrap">
+  <div class="comp-col-labels reveal">
+    <span></span>
+    <span>Sans spécialiste</span>
+    <span>Utilisateur Claude basique</span>
+    <span class="highlight">Avec 50 Spécialistes ✦</span>
+  </div>
+  <div class="comp-row reveal">
+    <div class="comp-task">Créer une campagne email</div>
+    <div class="comp-cell">5–10h par campagne</div>
+    <div class="comp-cell">3–5h, sonne comme l'IA</div>
+    <div class="comp-cell winner">1h, dans votre voix, prête</div>
+  </div>
+  <div class="comp-row reveal">
+    <div class="comp-task">Gérer les réseaux sociaux</div>
+    <div class="comp-cell">6–8h/semaine, manuel</div>
+    <div class="comp-cell">2h, ton incohérent</div>
+    <div class="comp-cell winner">30 min, planifié et prêt</div>
+  </div>
+  <div class="comp-row reveal">
+    <div class="comp-task">Créer une offre ou un script de vente</div>
+    <div class="comp-cell">Demi-journée, incomplet</div>
+    <div class="comp-cell">1h, résultats génériques</div>
+    <div class="comp-cell winner">15 min, positionné et percutant</div>
+  </div>
+  <div class="comp-row reveal">
+    <div class="comp-task">Analyser un marché ou un concurrent</div>
+    <div class="comp-cell">Journée entière</div>
+    <div class="comp-cell">2h, superficiel</div>
+    <div class="comp-cell winner">20 min, insights actionnables</div>
+  </div>
+</div>
+
+<!-- ===== AUTOMATE SECTION ===== -->
+<section class="section">
+  <div class="automate-wrap">
+    <div class="section-center reveal">
+      <p class="section-label">Automatisation</p>
+      <h2 class="section-h2">Voici une partie du travail fastidieux que vous allez automatiser</h2>
+    </div>
+    <div class="automate-stage" id="automate-stage">
+      <div class="auto-bubbles-left">
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">🖊️</span>
+          <span>Votre Copywriter rédige vos pubs, emails et pages de vente dans votre voix</span>
+        </div>
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">📊</span>
+          <span>Votre Stratège construit vos plans de croissance, analyses de marché et roadmaps</span>
+        </div>
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">📧</span>
+          <span>Votre Spécialiste Email gère vos séquences, relances et campagnes nurturing</span>
+        </div>
+      </div>
+      <div class="mac-outer" id="mac-outer">
+        <div class="mac-body">
+          <div class="mac-titlebar">
+            <div class="mac-dot red"></div>
+            <div class="mac-dot yellow"></div>
+            <div class="mac-dot green"></div>
+          </div>
+          <div class="mac-screen">
+            <div class="mac-msgs">
+              <div class="mac-msg-user">Crée une séquence email de bienvenue pour mes nouveaux clients</div>
+              <div class="mac-msg-ai">
+                ✦ <strong style="color:var(--white)">Spécialiste Email activé</strong><br><br>
+                Voici votre séquence en 5 emails, optimisée pour maximiser l'engagement et la conversion dès le premier contact…
+              </div>
+              <div class="mac-typing"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="mac-inputbar">
+            <div class="mac-input-fake">Demandez à votre spécialiste…</div>
+            <div class="mac-send">↑</div>
+          </div>
+        </div>
+        <div class="mac-base"></div>
+        <div class="mac-stand"></div>
+      </div>
+      <div class="auto-bubbles-right">
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">🔍</span>
+          <span>Votre Chercheur analyse vos concurrents, marchés et angles inexploités</span>
+        </div>
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">🤝</span>
+          <span>Votre Spécialiste Commercial rédige vos scripts, gère les objections et close</span>
         </div>
       </div>
     </div>
   </div>
 </section>
+<hr class="divider" />
 
-<!-- FAQ -->
-<section class="section" style="background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+<!-- ===== BEFORE / AFTER ===== -->
+<section class="section" style="background:var(--bg2);">
   <div class="section-inner">
-    <p class="section-label">Questions fréquentes</p>
-    <h2>Vos <em>questions</em>, nos réponses</h2>
-    <p class="section-desc" style="margin-bottom:40px;">Quelque chose n'est pas clair ? On a les réponses.</p>
-    <div class="faq-list">
-      <details>
-        <summary>De quoi j'ai besoin pour utiliser les spécialistes ?</summary>
-        <p>Vous avez besoin de Claude Cowork (l'application desktop d'Anthropic, gratuite ou payante). Les spécialistes s'installent en quelques secondes via glisser-déposer.</p>
-      </details>
-      <details>
-        <summary>Est-ce compatible Mac et Windows ?</summary>
-        <p>Oui. Claude Cowork est disponible sur Mac et Windows. Les 50 fichiers spécialistes fonctionnent sur les deux plateformes sans modification.</p>
-      </details>
-      <details>
-        <summary>C'est quoi exactement un "spécialiste IA" ?</summary>
-        <p>C'est un fichier que vous importez dans Claude Cowork. Une fois activé, Claude adopte le rôle, les connaissances et la méthode d'un expert dans un domaine précis — copywriting, vente, marketing, etc. Résultat : des réponses d'expert, pas des réponses génériques.</p>
-      </details>
-      <details>
-        <summary>Est-ce que c'est différent des prompts classiques ?</summary>
-        <p>Oui, et c'est crucial. Un prompt classique dure le temps d'une conversation. Un spécialiste est installé une fois pour toutes dans Claude — il est disponible à chaque session, sans avoir à tout répéter.</p>
-      </details>
-      <details>
-        <summary>Est-ce que ça fonctionnera avec les futures versions de Claude ?</summary>
-        <p>Oui. Le format est compatible avec l'architecture Claude Cowork — il évoluera avec la plateforme. Vous recevez aussi les mises à jour gratuitement.</p>
-      </details>
-      <details>
-        <summary>Et si ça ne me convient pas ?</summary>
-        <p>Vous avez 7 jours pour demander un remboursement complet, sans justification. Envoyez un email à arnaud@maitrise-ia.com — c'est remboursé dans les 48h.</p>
-      </details>
+    <div class="section-center reveal">
+      <p class="section-label">Avant / Après</p>
+      <h2 class="section-h2">Toujours à taper dans une fenêtre Claude vide ?<br/>Voici ce que vous ratez.</h2>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card reveal">
+        <div class="ba-title">❌ Comment la plupart utilisent Claude :</div>
+        <div class="ba-item"><span class="ba-icon cross">✕</span><span>Ouvre Claude. Page vide. Écrit un prompt qui marche peut-être.</span></div>
+        <div class="ba-item"><span class="ba-icon cross">✕</span><span>Résultat qui sonne comme l'IA — 30 min d'édition minimum.</span></div>
+        <div class="ba-item"><span class="ba-icon cross">✕</span><span>Réexplique son business à chaque nouvelle session.</span></div>
+        <div class="ba-item"><span class="ba-icon cross">✕</span><span>Perd tout contexte dès qu'il ouvre un nouveau chat.</span></div>
+        <div class="ba-item"><span class="ba-icon cross">✕</span><span>Utilise le meilleur IA du marché à 20% de sa puissance.</span></div>
+      </div>
+      <div class="ba-card winner reveal reveal-delay-1">
+        <div class="ba-title">✅ Comment vous travaillerez avec les 50 Spécialistes :</div>
+        <div class="ba-item"><span class="ba-icon check">✓</span><span>Ouvre le bon Spécialiste — contexte défini, rôle configuré, prêt.</span></div>
+        <div class="ba-item"><span class="ba-icon check">✓</span><span>Résultat d'expert dès le premier message — ça sonne comme vous, pas comme l'IA.</span></div>
+        <div class="ba-item"><span class="ba-icon check">✓</span><span>Claude connaît votre business — jamais besoin de ré-expliquer.</span></div>
+        <div class="ba-item"><span class="ba-icon check">✓</span><span>Chaque session s'appuie sur la précédente.</span></div>
+        <div class="ba-item"><span class="ba-icon check">✓</span><span>Opère au niveau que la plupart des utilisateurs Claude n'atteignent jamais.</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="#pricing" class="cta-btn large" style="display:inline-flex;">
+        <span class="cta-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+        <span class="cta-btn-text">Obtenir l'accès immédiat</span>
+      </a>
+      <p class="cta-guarantee">Satisfait ou remboursé 7 jours.</p>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <h2>Prêt à avoir 50 experts IA<br />dans votre équipe ?</h2>
-  <p>57€ aujourd'hui. 97€ demain. Accès à vie. Aucun abonnement.</p>
-  <a href="https://maitrise-ia.lemonsqueezy.com/checkout/buy/a786543b-261d-4e82-92e9-b73cbf96e2a4" class="btn-primary">
-    Oui, je veux mes 50 Spécialistes <span class="arrow">→</span>
-  </a>
-  <p style="margin-top:20px;font-size:13px;color:var(--muted);">🔒 Paiement sécurisé · Accès immédiat · Remboursement 7 jours</p>
+<!-- ===== SECTION A — DAILY PARTNER ===== -->
+<hr class="divider" />
+<section class="section daily-section">
+  <div class="daily-wrap">
+    <div class="daily-text reveal">
+      <p class="section-label">Partenaire quotidien</p>
+      <h2 class="daily-title">Votre partenaire IA de travail. Chaque jour.</h2>
+      <p class="daily-body">La plupart des gens utilisent Claude quand ils s'en souviennent. Avec les 50 Spécialistes, Claude devient indispensable — il tourne aux côtés de votre business chaque jour, pas seulement quand vous avez une heure de libre.</p>
+    </div>
+    <div class="cowork-mock" id="cowork-mock">
+      <div class="cowork-titlebar">
+        <div class="mac-dot red"></div>
+        <div class="mac-dot yellow"></div>
+        <div class="mac-dot green"></div>
+      </div>
+      <div class="cowork-mock-inner">
+        <div class="cowork-sidebar">
+          <div class="cowork-sidebar-item active"><span>🖊️</span> Copywriter</div>
+          <div class="cowork-sidebar-item"><span>📊</span> Stratège</div>
+          <div class="cowork-sidebar-item"><span>📧</span> Email</div>
+          <div class="cowork-sidebar-item"><span>🔍</span> Chercheur</div>
+          <div class="cowork-sidebar-item"><span>🤝</span> Commercial</div>
+          <div class="cowork-sidebar-item"><span>📱</span> Réseaux</div>
+          <div class="cowork-sidebar-item"><span>💡</span> Brainstorm</div>
+          <div class="cowork-sidebar-item"><span>📝</span> Rédacteur</div>
+        </div>
+        <div class="cowork-main">
+          <div class="cowork-prompt-card">
+            <div class="cowork-prompt-tag">🖊��� Copywriter</div>
+            <div class="cowork-prompt-text">Rédige une page de vente pour mon offre à 497€ en ciblant les entrepreneurs qui n'ont pas le temps de créer du contenu eux-mêmes…</div>
+          </div>
+          <div class="cowork-prompt-card">
+            <div class="cowork-prompt-tag">📊 Stratège</div>
+            <div class="cowork-prompt-text">Construis un plan de croissance sur 90 jours pour mon activité de coaching, avec les 3 leviers prioritaires à activer ce mois-ci…</div>
+          </div>
+        </div>
+      </div>
+      <div class="cowork-inputbar">
+        <div class="cowork-input-fake">Message votre Spécialiste…</div>
+        <div class="cowork-send">↑</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Maîtrise IA — Arnaud Aka · <a href="mailto:arnaud@maitrise-ia.com">arnaud@maitrise-ia.com</a></p>
-  <p style="margin-top:6px;"><a href="#">Mentions légales</a> · <a href="#">CGV</a> · <a href="#">Politique de confidentialité</a></p>
+<!-- ===== SECTION B — 3 FEATURE CARDS ===== -->
+<hr class="divider" />
+<section class="section" style="background:var(--bg2);">
+  <div class="cards3-wrap">
+    <h2 class="cards3-title reveal">Les 50 Spécialistes travaillent pour vous — même quand vous n'êtes pas là.</h2>
+
+    <div class="feat-card feat-card-item">
+      <h3 class="feat-card-title">Vous voulez que Claude gère votre marketing sans vous épuiser ?</h3>
+      <p class="feat-card-body">Vos Spécialistes Marketing, Copywriting et Réseaux Sociaux produisent du contenu dans votre voix, planifient vos posts et rédigent vos emails — dès le premier message, sans briefe interminable.</p>
+      <div class="feat-pills">
+        <div class="feat-pill"><span class="feat-pill-icon">✍️</span><span>Rédige 5 posts LinkedIn dans ma voix à partir de ces notes</span></div>
+        <div class="feat-pill"><span class="feat-pill-icon">📧</span><span>Crée une séquence email de bienvenue pour mes nouveaux abonnés</span></div>
+        <div class="feat-pill"><span class="feat-pill-icon">📱</span><span>Génère mon plan de contenu de la semaine à partir de mes meilleurs posts</span></div>
+      </div>
+    </div>
+
+    <div class="feat-card feat-card-item">
+      <h3 class="feat-card-title">Vous voulez que Claude apprenne votre voix une fois — et ne vous demande plus jamais ?</h3>
+      <p class="feat-card-body">Chaque Spécialiste est pré-configuré avec un contexte expert. Vous l'ouvrez, vous posez votre question — il répond comme un professionnel qui vous connaît depuis des mois.</p>
+      <div class="feat-pills">
+        <div class="feat-pill"><span class="feat-pill-icon">🎯</span><span>Transforme ce brouillon en page de vente percutante</span></div>
+        <div class="feat-pill"><span class="feat-pill-icon">🎬</span><span>Écris un script vidéo de 60 secondes pour ce produit</span></div>
+        <div class="feat-pill"><span class="feat-pill-icon">📊</span><span>Analyse ce marché et identifie mes angles différenciants</span></div>
+      </div>
+    </div>
+
+    <div class="feat-card feat-card-item">
+      <h3 class="feat-card-title">Vous voulez un expert commercial disponible 24h/24, sans le payer 500€/h ?</h3>
+      <p class="feat-card-body">Vos Spécialistes Vente, Prospection et Funnel rédigent vos scripts, gèrent les objections, structurent vos offres et construisent vos tunnels — chaque fois que vous en avez besoin.</p>
+      <div class="feat-pills">
+        <div class="feat-pill"><span class="feat-pill-icon">🤝</span><span>Rédige un script de vente pour mon offre à 997€</span></div>
+        <div class="feat-pill"><span class="feat-pill-icon">📬</span><span>Écris 3 emails de relance pour mes prospects froids</span></div>
+        <div class="feat-pill"><span class="feat-pill-icon">💰</span><span>Structure mon offre high-ticket avec les bons arguments</span></div>
+      </div>
+    </div>
+
+    <div class="cards3-cta reveal">
+      <a href="#pricing" class="cta-btn large">
+        <span class="cta-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+        <span class="cta-btn-text">Obtenir l'accès immédiat →</span>
+      </a>
+      <p style="margin-top:14px;font-size:14px;color:var(--gray3);">Satisfait ou remboursé 7 jours — zéro risque.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ACCORDION ===== -->
+<hr class="divider" />
+<section class="section">
+  <div class="bene-inner">
+    <div class="bene-left reveal">
+      <h2>Un expert IA qui travaille pour vous. Chaque jour.</h2>
+      <p>Chaque Spécialiste connaît déjà son rôle, votre contexte et ce qu'il doit produire — vous arrêtez d'être le seul à tout faire.</p>
+      <a href="#pricing" class="cta-btn" style="display:inline-flex;">
+        <span class="cta-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+        <span class="cta-btn-text">Obtenir l'accès immédiat</span>
+      </a>
+      <p class="cta-guarantee">Satisfait ou remboursé 7 jours.</p>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="accordion-item open" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
+          <div class="accordion-header-left">
+            <div class="accordion-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+            <span class="accordion-title">Résultats qui sonnent comme vous, pas comme l'IA</span>
+          </div>
+          <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="accordion-body"><div class="accordion-body-inner">Chaque Spécialiste est configuré pour adopter votre ton, votre style et vos références business. Fini les contenus génériques que tout le monde reconnaît comme produits par l'IA.</div></div>
+      </div>
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
+          <div class="accordion-header-left">
+            <div class="accordion-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <span class="accordion-title">10x votre production. Zéro heure supplémentaire.</span>
+          </div>
+          <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="accordion-body"><div class="accordion-body-inner">Au lieu de passer des heures à peaufiner des prompts, vous ouvrez le bon Spécialiste et obtenez un résultat d'expert dès le premier échange. Ce temps, vous le récupérez pour ce qui compte vraiment.</div></div>
+      </div>
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
+          <div class="accordion-header-left">
+            <div class="accordion-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+            <span class="accordion-title">Jamais besoin de ré-expliquer votre business</span>
+          </div>
+          <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="accordion-body"><div class="accordion-body-inner">Chaque Spécialiste est installé une fois pour toutes dans Claude Cowork. Il connaît votre contexte, vos offres, votre audience — et repart de là à chaque session.</div></div>
+      </div>
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
+          <div class="accordion-header-left">
+            <div class="accordion-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <span class="accordion-title">Scalez sans recruter</span>
+          </div>
+          <svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="accordion-body"><div class="accordion-body-inner">Un copywriter, un stratège, un expert SEO, un coach vente — tous disponibles à la demande, sans salaire ni formation. Votre business grandit sans que votre équipe ait à grossir.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOMO SECTION ===== -->
+<section class="section">
+  <div class="section-inner">
+    <p class="quote-big reveal">Aucun de ces Spécialistes ne nécessite de prompt manuel. Tout est pré-configuré. Ouvrez, demandez, obtenez un résultat d'expert. C'est tout le système.</p>
+    <div class="fomo-box reveal">
+      <h2>Mais le vrai risque ? Être le dernier dans votre marché à comprendre comment ça fonctionne.</h2>
+      <p>Les entrepreneurs qui maîtrisent Claude aujourd'hui ont une longueur d'avance qui se <span class="hl">compose chaque semaine</span>.</p>
+      <p>Ils n'ont pas trouvé un outil secret. Ils ont juste fait ça <span class="hl">avant vous</span>.</p>
+      <br/>
+      <a href="#pricing" class="cta-btn large" style="margin:0 auto;display:inline-flex;">
+        <span class="cta-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+        <span class="cta-btn-text">Obtenir l'accès immédiat</span>
+      </a>
+      <p class="cta-guarantee">Satisfait ou remboursé 7 jours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section" style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="section-center reveal">
+      <p class="section-label">Ils ont testé</p>
+      <h2 class="section-h2">Ce qu'ils disent après avoir utilisé les 50 Spécialistes</h2>
+    </div>
+    <div class="testi-carousel-wrap reveal">
+      <div class="testi-carousel" id="testiCarousel">
+        <div class="testi-slide">
+          <div class="testi-avatar">S</div>
+          <div class="testi-name">Sophie M.</div>
+          <div class="testi-role">Coach business &amp; formatrice en ligne</div>
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"J'utilisais Claude depuis des mois sans vraiment en exploiter le potentiel. Avec les Spécialistes, j'ai créé ma dernière séquence email en 45 minutes chrono. Avant, c'était une demi-journée. Et surtout — ça sonnait enfin comme moi, pas comme une IA générique."</div>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-avatar">T</div>
+          <div class="testi-name">Thomas B.</div>
+          <div class="testi-role">Fondateur d'agence marketing</div>
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"Ce qui m'a convaincu, c'est que je n'ai plus besoin de ré-expliquer mon business à chaque session. Le Spécialiste Stratégie connaît mes clients-types, mes offres, mes contraintes. C'est comme avoir un consultant qui ne prend jamais de vacances."</div>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-avatar">M</div>
+          <div class="testi-name">Marie-Laure D.</div>
+          <div class="testi-role">Consultante en transformation digitale</div>
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"J'étais sceptique au départ — encore un pack de prompts ? Mais c'est vraiment autre chose. L'installation prend 3 minutes et dès le premier message avec Hugo le Copywriter, j'ai eu un résultat que j'aurais mis 2h à produire seule."</div>
+        </div>
+      </div>
+      <button class="testi-nav prev" onclick="slideTesti(-1)">&#8249;</button>
+      <button class="testi-nav next" onclick="slideTesti(1)">&#8250;</button>
+    </div>
+    <div class="testi-dots" id="testiDots">
+      <div class="testi-dot active" onclick="goTesti(0)"></div>
+      <div class="testi-dot" onclick="goTesti(1)"></div>
+      <div class="testi-dot" onclick="goTesti(2)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DONUT CHART ===== -->
+<section class="section">
+  <div class="donut-inner">
+    <div class="reveal">
+      <p class="section-label">Le constat</p>
+      <h2 class="section-h2" style="font-size:clamp(26px,3.5vw,42px);">Vous utilisez Claude. Mais pas à son vrai niveau.</h2>
+      <p style="font-size:16px;color:var(--gray2);line-height:1.8;margin-bottom:28px;">La plupart des entrepreneurs opèrent Claude à 20% de sa capacité réelle. Les 80% restants, c'est savoir <em>comment le déployer</em> — pas juste comment prompter. Les 50 Spécialistes sont ce raccourci.</p>
+      <div>
+        <div class="donut-ann-item"><div class="donut-ann-dot" style="background:var(--purple);"></div><div><strong style="color:#fff;">7% des entrepreneurs</strong> exploitent l'IA à son plein potentiel — automatisation complète marketing, vente, ops</div></div>
+        <div class="donut-ann-item"><div class="donut-ann-dot" style="background:var(--bg4);border:1px solid var(--gray4);"></div><div><strong style="color:#fff;">93% des utilisateurs</strong> s'en servent pour des tâches basiques : résumés, traductions, reformulations</div></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="position:relative; display:flex; flex-direction:column; align-items:center;">
+      <svg width="300" height="300" viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="110" fill="none" stroke="#252528" stroke-width="55"/>
+        <circle cx="150" cy="150" r="110" fill="none" stroke="#8b5cf6" stroke-width="55"
+          stroke-dasharray="48.4 643"
+          stroke-dashoffset="0"
+          transform="rotate(-90 150 150)"/>
+        <text x="150" y="141" text-anchor="middle" fill="#fff" font-size="18" font-weight="800" font-family="Inter">Potentiel IA</text>
+        <text x="150" y="163" text-anchor="middle" fill="#71717a" font-size="13" font-family="Inter">de Claude</text>
+      </svg>
+      <div style="display:flex;gap:20px;margin-top:12px;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gray2);"><div style="width:12px;height:12px;border-radius:50%;background:var(--purple);flex-shrink:0;"></div> 7% — Plein potentiel</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gray2);"><div style="width:12px;height:12px;border-radius:50%;background:var(--bg4);border:1px solid var(--gray4);flex-shrink:0;"></div> 93% — Utilisation basique</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPECIALISTS CATEGORIES ===== -->
+<hr class="divider" />
+<section class="section">
+  <div class="spec-inner">
+    <div class="spec-left reveal">
+      <p class="section-label">50 Spécialistes</p>
+      <h2 class="section-h2" style="font-size:clamp(26px,3.5vw,42px);">50 Spécialistes. Chaque angle de votre business couvert.</h2>
+      <p>Chacun pré-configuré avec des instructions de niveau expert. Ouvrez-le, posez votre question, obtenez un résultat qui sonne comme vous — pas comme l'IA.</p>
+      <div style="margin-top:32px;">
+        <a href="#pricing" class="cta-btn" style="display:inline-flex;">
+          <span class="cta-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+          <span class="cta-btn-text">Obtenir l'accès immédiat</span>
+        </a>
+        <p class="cta-guarantee">Accès à vie · Pas d'abonnement</p>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="accordion-item open" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-header-left"><span style="font-size:18px;">📣</span><span class="accordion-title">Marketing &amp; Contenu <span style="color:var(--gray3);font-weight:400;font-size:13px;">(12)</span></span></div><svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="accordion-body"><div class="accordion-body-inner"><div class="tag-wrap"><span class="tag">Hugo — copywriter</span><span class="tag">Emma — stratégie contenu</span><span class="tag">Axel — Meta Ads</span><span class="tag">Raphaël — Google Ads</span><span class="tag">Adam — publicité</span><span class="tag">Nora — email marketing</span><span class="tag">Julien — newsletter</span><span class="tag">Théo — SEO</span><span class="tag">Max — offre</span><span class="tag">Barbara — blog</span><span class="tag">Zoe — réseaux sociaux</span><span class="tag">Mia — content repurposing</span></div></div></div>
+      </div>
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-header-left"><span style="font-size:18px;">💰</span><span class="accordion-title">Vente &amp; Revenue <span style="color:var(--gray3);font-weight:400;font-size:13px;">(8)</span></span></div><svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="accordion-body"><div class="accordion-body-inner"><div class="tag-wrap"><span class="tag">Victor — vente</span><span class="tag">Chloé — script vente</span><span class="tag">Thomas — prospection</span><span class="tag">Alice — funnel</span><span class="tag">Charlotte — offre high-ticket</span><span class="tag">Lucas — pricing</span><span class="tag">Paul — génération leads</span><span class="tag">Nicolas — monétisation</span></div></div></div>
+      </div>
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-header-left"><span style="font-size:18px;">🏗️</span><span class="accordion-title">Stratégie &amp; Business <span style="color:var(--gray3);font-weight:400;font-size:13px;">(7)</span></span></div><svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="accordion-body"><div class="accordion-body-inner"><div class="tag-wrap"><span class="tag">Florian — stratégie business</span><span class="tag">Étienne — analyse marché</span><span class="tag">Sophie — partenariats</span><span class="tag">Laura — KPIs</span><span class="tag">Amandine — avatar client</span><span class="tag">Valentin — vision &amp; objectifs</span><span class="tag">Adrien — lancement</span></div></div></div>
+      </div>
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-header-left"><span style="font-size:18px;">🎬</span><span class="accordion-title">Contenu &amp; Vidéo <span style="color:var(--gray3);font-weight:400;font-size:13px;">(5)</span></span></div><svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="accordion-body"><div class="accordion-body-inner"><div class="tag-wrap"><span class="tag">Léo — scripts viraux</span><span class="tag">Clément — podcast</span><span class="tag">Clara — Instagram</span><span class="tag">Léonard — LinkedIn</span><span class="tag">Alexis — prompts IA</span></div></div></div>
+      </div>
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-header-left"><span style="font-size:18px;">⚙️</span><span class="accordion-title">Productivité &amp; Systèmes <span style="color:var(--gray3);font-weight:400;font-size:13px;">(7)</span></span></div><svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="accordion-body"><div class="accordion-body-inner"><div class="tag-wrap"><span class="tag">Antoine — automatisation</span><span class="tag">Mathieu — workflows avancés</span><span class="tag">Camille — gestion projets</span><span class="tag">Élise — gestion temps</span><span class="tag">Nathan — assistant virtuel</span><span class="tag">Romain — délégation</span><span class="tag">Gabriel — outils IA</span></div></div></div>
+      </div>
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-header-left"><span style="font-size:18px;">🎓</span><span class="accordion-title">Formation &amp; Coaching <span style="color:var(--gray3);font-weight:400;font-size:13px;">(5)</span></span></div><svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="accordion-body"><div class="accordion-body-inner"><div class="tag-wrap"><span class="tag">Sarah — cours &amp; pédagogie</span><span class="tag">Manon — formation en ligne</span><span class="tag">Pauline — coaching &amp; mentorat</span><span class="tag">Estelle — intégration IA</span><span class="tag">Hugo IA — spécialiste IA</span></div></div></div>
+      </div>
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-header-left"><span style="font-size:18px;">🤝</span><span class="accordion-title">Relation Client &amp; Équipe <span style="color:var(--gray3);font-weight:400;font-size:13px;">(4)</span></span></div><svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="accordion-body"><div class="accordion-body-inner"><div class="tag-wrap"><span class="tag">Jade — relation client</span><span class="tag">Marie — onboarding client</span><span class="tag">Ana — service client</span><span class="tag">Baptiste — produit digital</span></div></div></div>
+      </div>
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-header"><div class="accordion-header-left"><span style="font-size:18px;">🌊</span><span class="accordion-title">Bien-être &amp; Performance <span style="color:var(--gray3);font-weight:400;font-size:13px;">(3)</span></span></div><svg class="accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="accordion-body"><div class="accordion-body-inner"><div class="tag-wrap"><span class="tag">Inès — routines &amp; performance</span><span class="tag">Margaux — équilibre vie-business</span><span class="tag">Ocean — mindset</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="section" style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="section-center reveal">
+      <p class="section-label">Avis</p>
+      <h2 class="section-h2">Des entrepreneurs francophones qui ont sauté le pas</h2>
+    </div>
+    <div class="reviews-grid reveal">
+      <div class="review-card"><div class="review-header"><div class="review-avatar">A</div><div><div class="review-name">Alexandre P.</div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Très utile et très complet. Chaque domaine business couvert. Je reviens dessus tous les jours. 😊</div></div>
+      <div class="review-card"><div class="review-header"><div class="review-avatar">C</div><div><div class="review-name">Cécile R.</div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Je cherchais une vraie ressource en français pour aller plus loin avec Claude. C'est exactement ça. Il y a des Spécialistes que je n'aurais même pas pensé à utiliser. Vaut chaque euro.</div></div>
+      <div class="review-card"><div class="review-header"><div class="review-avatar">J</div><div><div class="review-name">Julien M.</div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Ce qui m'a bluffé, c'est la qualité des résultats dès le premier essai. Pas besoin d'affiner. On ouvre, on pose la question, on obtient.</div></div>
+      <div class="review-card"><div class="review-header"><div class="review-avatar">N</div><div><div class="review-name">Nathalie G.</div></div></div><div class="review-stars">★★★★★</div><div class="review-text">J'ai réduit mon temps de production de contenu de moitié. Ce n'est plus moi qui fais les allers-retours — le Spécialiste comprend mon brief avant même que je finisse de le taper.</div></div>
+      <div class="review-card"><div class="review-header"><div class="review-avatar">R</div><div><div class="review-name">Romain B.</div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Achetez-le. C'est vraiment utile. Ca génère des tonnes d'idées, surtout si vous avez tendance à procrastiner parce que vous sur-analysez les choses.</div></div>
+      <div class="review-card"><div class="review-header"><div class="review-avatar">D</div><div><div class="review-name">Delphine V.</div></div></div><div class="review-stars">★★★★★</div><div class="review-text">Les prompts et les idées sont vraiment de valeur. Je continue à découvrir des Spécialistes que je n'avais pas encore explorés. Super produit.</div></div>
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="#pricing" class="cta-btn large" style="display:inline-flex;margin:0 auto;">
+        <span class="cta-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+        <span class="cta-btn-text">Obtenir l'accès immédiat</span>
+      </a>
+      <p class="cta-guarantee">Satisfait ou remboursé 7 jours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PURPLE BANNER ===== -->
+<div style="background:linear-gradient(135deg,#2d1b69,#4c1d95,#3b0764);padding:80px 32px;text-align:center;">
+  <div style="max-width:900px;margin:0 auto;" class="reveal">
+    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:20px;">50 Spécialistes. Chaque angle de votre business couvert.</h2>
+    <p style="font-size:18px;color:rgba(255,255,255,0.7);max-width:600px;margin:0 auto;">Un seul paiement. Accès à vie. Aucun abonnement.</p>
+  </div>
+</div>
+
+<!-- ===== PRICING ===== -->
+<section class="section" id="pricing" style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="section-center reveal">
+      <p class="section-label">Offre de lancement — 48h seulement</p>
+      <h2 class="section-h2">Choisissez votre accès</h2>
+      <p class="section-body">Un paiement unique. Accès immédiat par email. Mises à jour gratuites incluses.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-name">50 Spécialistes IA</div>
+        <div class="pricing-price-wrap">
+          <span class="pricing-price">57€</span>
+          <span class="pricing-original">97€</span>
+          <span class="pricing-discount">41% OFF</span>
+        </div>
+        <div class="pricing-sub">Prix lancement 48h · Un paiement unique · Accès à vie</div>
+        <div class="pricing-features">
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>50 Spécialistes IA en français, experts dans leur domaine</span></div>
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>Accès immédiat par email après paiement</span></div>
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>Mises à jour gratuites incluses</span></div>
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>Guide d'installation vidéo (3 minutes)</span></div>
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>Compatible Claude Cowork — Mac &amp; Windows</span></div>
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>Accès à vie — pas d'abonnement</span></div>
+        </div>
+        <a href="VOTRE_LIEN_LEMONSQUEEZY" class="cta-btn flat">
+          <span class="cta-btn-text">Obtenir l'accès — 57€</span>
+        </a>
+        <p class="pricing-guarantee">Satisfait ou remboursé 7 jours, sans justification.</p>
+      </div>
+      <div class="pricing-card best reveal reveal-delay-1">
+        <div class="best-badge">⭐ Meilleure offre</div>
+        <div class="pricing-name">50 Spécialistes IA — Valeur complète</div>
+        <div class="pricing-price-wrap">
+          <span class="pricing-price">57€</span>
+          <span class="pricing-original" style="font-size:15px;">Valeur 900€+</span>
+        </div>
+        <div class="pricing-sub">L'équivalent de 900€+ de consulting IA · Un paiement unique</div>
+        <div class="pricing-features">
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>50 Spécialistes IA en français, experts dans leur domaine</span></div>
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>Accès immédiat par email après paiement</span></div>
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>Mises à jour gratuites incluses</span></div>
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>Guide d'installation vidéo (3 minutes)</span></div>
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>Compatible Claude Cowork — Mac &amp; Windows</span></div>
+          <div class="pricing-feat"><div class="feat-check">✓</div><span>Accès à vie — pas d'abonnement</span></div>
+          <div class="pricing-feat"><div class="feat-check" style="border-color:var(--orange);color:var(--orange);">✓</div><span style="color:var(--purple-light);font-weight:600;">Garantie satisfait ou remboursé 7 jours</span></div>
+        </div>
+        <div style="background:var(--bg4);border:1px solid var(--purple-border);border-radius:10px;padding:14px 16px;margin-bottom:24px;font-size:13px;color:var(--gray2);">
+          <strong style="color:var(--white);">L'équivalent de 900€+ de consulting IA</strong> — disponible à la demande, pour toujours.
+        </div>
+        <a href="VOTRE_LIEN_LEMONSQUEEZY" class="cta-btn flat">
+          <span class="cta-btn-text">Obtenir l'accès complet — 57€</span>
+        </a>
+        <p class="pricing-guarantee">Satisfait ou remboursé 7 jours, sans justification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUTHOR ===== -->
+<section class="section">
+  <div class="author-inner">
+    <div class="reveal">
+      <div class="author-avatar">
+        <img src="arnaud.jpg" alt="Arnaud Aka" onerror="this.style.display='none';this.parentElement.textContent='A';" />
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <p class="section-label">Qui est derrière les 50 Spécialistes</p>
+      <div class="author-name">Arnaud Aka</div>
+      <div class="author-handle">Maîtrise IA · arnaud@maitrise-ia.com</div>
+      <p class="author-bio">J'aide les entrepreneurs francophones à maîtriser Claude pour gagner du temps, produire plus, et générer plus de revenus — sans passer des heures à apprendre la technique. Après avoir testé des dizaines d'approches, j'ai créé les 50 Spécialistes pour vous donner accès à un niveau d'expertise IA que personne n'avait encore rendu aussi simple à utiliser en français. Ce n'est pas un prompt générique. Chaque spécialiste a été conçu pour performer sur des cas réels d'entrepreneurs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" style="background:var(--bg2);">
+  <div style="max-width:800px;margin:0 auto;">
+    <div class="section-center reveal" style="margin-bottom:48px;">
+      <p class="section-label">Questions fréquentes</p>
+      <h2 class="section-h2">Tout ce que vous avez besoin de savoir</h2>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">De quoi ai-je besoin pour utiliser les 50 Spécialistes ?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a"><div class="faq-a-inner">Vous avez besoin de Claude Cowork (l'application desktop officielle d'Anthropic). L'installation de chaque Spécialiste se fait en 30 secondes par simple glisser-déposer. Un guide vidéo de 3 minutes est inclus avec votre accès.</div></div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">Compatible Mac et Windows ?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a"><div class="faq-a-inner">Oui, les deux plateformes sont entièrement compatibles. Claude Cowork est disponible sur Mac et Windows, et les Spécialistes fonctionnent identiquement sur les deux.</div></div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">C'est quoi exactement un Spécialiste IA ?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a"><div class="faq-a-inner">Un Spécialiste est un fichier installé dans Claude qui lui donne le rôle, les connaissances, le contexte et la méthode d'un expert précis. Une fois installé, vous obtenez des résultats d'expert dès le premier message — sans avoir à expliquer qui vous êtes ni ce que vous voulez à chaque session.</div></div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">C'est différent des prompts classiques ?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a"><div class="faq-a-inner">Oui, fondamentalement. Un prompt dure une conversation — vous recommencez à zéro à chaque fois. Un Spécialiste est installé une fois pour toutes : disponible à chaque session, sans répétition, avec tout le contexte déjà en place. C'est la différence entre un outil et un collaborateur.</div></div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">Compatible avec les futures versions de Claude ?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a"><div class="faq-a-inner">Oui. Le format est compatible avec l'architecture Claude Cowork qui est le standard officiel d'Anthropic. Les mises à jour sont incluses dans votre achat — vous bénéficiez automatiquement des évolutions.</div></div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">Et si ça ne me convient pas ?<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a"><div class="faq-a-inner">Remboursement complet sous 7 jours, sans justification. Il vous suffit d'envoyer un email à arnaud@maitrise-ia.com. Aucune question ne sera posée.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="section" style="text-align:center;">
+  <div style="max-width:700px;margin:0 auto;" class="reveal">
+    <p class="section-label">Dernière chance</p>
+    <h2 class="section-h2">L'écart ne se comble pas.<br/>Il s'élargit chaque semaine.</h2>
+    <p class="section-body" style="margin-bottom:40px;">Le prix de lancement ne durera que 48h. Après, il revient à 97€. Mais la vraie question ce n'est pas le prix — c'est combien de temps encore vous voulez opérer à 20% de votre potentiel.</p>
+    <a href="VOTRE_LIEN_LEMONSQUEEZY" class="cta-btn large" style="display:inline-flex;margin:0 auto;">
+      <span class="cta-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+      <span class="cta-btn-text">Obtenir l'accès immédiat — 57€</span>
+    </a>
+    <p class="cta-guarantee" style="margin-top:14px;">Satisfait ou remboursé 7 jours · Un paiement · Accès à vie</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:var(--bg);border-top:1px solid var(--gray4);padding:32px;text-align:center;">
+  <p style="font-size:13px;color:var(--gray3);line-height:1.8;">
+    © 2026 Maîtrise IA — Arnaud Aka
+    <span style="margin:0 8px;opacity:.4;">·</span>
+    <a href="mailto:arnaud@maitrise-ia.com" style="color:var(--gray3);text-decoration:none;">arnaud@maitrise-ia.com</a>
+    <span style="margin:0 8px;opacity:.4;">·</span>
+    <a href="#" style="color:var(--gray3);text-decoration:none;">Mentions légales</a>
+    <span style="margin:0 8px;opacity:.4;">·</span>
+    <a href="#" style="color:var(--gray3);text-decoration:none;">CGV</a>
+    <span style="margin:0 8px;opacity:.4;">·</span>
+    <a href="#" style="color:var(--gray3);text-decoration:none;">Politique de confidentialité</a>
+  </p>
 </footer>
 
 <script>
-  // Countdown timer (48h from first load, or stored in localStorage)
-  function getEndTime() {
-    try {
-      const stored = localStorage.getItem('countdown_end');
-      if (stored) return parseInt(stored, 10);
-    } catch(e) {}
-    const end = Date.now() + 48 * 3600 * 1000;
-    try { localStorage.setItem('countdown_end', end); } catch(e) {}
-    return end;
+  // SCROLL ANIMATIONS
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ACCORDION
+  function toggleAccordion(item) {
+    const wasOpen = item.classList.contains('open');
+    item.parentElement.querySelectorAll('.accordion-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
   }
 
-  const endTime = getEndTime();
-
-  function updateTimers() {
-    const remaining = Math.max(0, endTime - Date.now());
-    const h = Math.floor(remaining / 3600000);
-    const m = Math.floor((remaining % 3600000) / 60000);
-    const s = Math.floor((remaining % 60000) / 1000);
-    const str = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-    document.getElementById('timer').textContent = str;
-    document.getElementById('timer2').textContent = str;
+  // FAQ
+  function toggleFaq(item) {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
   }
 
-  updateTimers();
-  setInterval(updateTimers, 1000);
+  // TESTIMONIAL CAROUSEL
+  let idx = 0;
+  const carousel = document.getElementById('testiCarousel');
+  const dots = document.querySelectorAll('.testi-dot');
+  const total = carousel ? carousel.children.length : 0;
+
+  function updateCarousel() {
+    if (!carousel) return;
+    carousel.style.transform = `translateX(-${idx * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+  function slideTesti(dir) { idx = (idx + dir + total) % total; updateCarousel(); }
+  function goTesti(i) { idx = i; updateCarousel(); }
+  setInterval(() => slideTesti(1), 6000);
+
+  // QUOTE SCROLL ANIMATION
+  const qEl = document.querySelector('.quote-big');
+  if (qEl) {
+    new IntersectionObserver(([e]) => {
+      qEl.style.color = e.isIntersecting ? '#f4f4f5' : '#71717a';
+    }, { threshold: 0.5 }).observe(qEl);
+  }
+
+  // Automate section animation
+  (function() {
+    const stage = document.getElementById('automate-stage');
+    const macEl = document.getElementById('mac-outer');
+    const bubbles = document.querySelectorAll('.auto-bubble-item');
+    if (!stage) return;
+    new IntersectionObserver(function(entries) {
+      if (!entries[0].isIntersecting) return;
+      macEl.classList.add('visible');
+      bubbles.forEach(function(b, i) {
+        setTimeout(function() { b.classList.add('visible'); }, 300 + i * 150);
+      });
+      this.disconnect();
+    }, { threshold: 0.2 }).observe(stage);
+  })();
+
+  // Section A — cowork mock animation
+  (function() {
+    const el = document.getElementById('cowork-mock');
+    if (!el) return;
+    new IntersectionObserver(function(entries) {
+      if (!entries[0].isIntersecting) return;
+      el.classList.add('visible');
+      this.disconnect();
+    }, { threshold: 0.2 }).observe(el);
+  })();
+
+  // Section B — 3 cards cascade animation
+  (function() {
+    const cards = document.querySelectorAll('.feat-card-item');
+    if (!cards.length) return;
+    const obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function() { entry.target.classList.add('visible'); }, i * 120);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    cards.forEach(function(c) { obs.observe(c); });
+  })();
 </script>
-
 </body>
 </html>
