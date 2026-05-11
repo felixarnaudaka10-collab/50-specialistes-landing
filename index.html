@@ -695,12 +695,8 @@
       position: relative; display: flex; align-items: center;
       justify-content: center; min-height: 480px; margin-top: 60px; gap: 0;
     }
-    .mac-outer {
-      position: relative; z-index: 5; flex-shrink: 0;
-      opacity: 0; transform: scale(0.95);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .mac-outer.visible { opacity: 1; transform: scale(1); }
+    
+    
     .mac-body {
       width: 400px; background: #1e1e24;
       border-radius: 12px 12px 6px 6px;
@@ -890,7 +886,45 @@
       .feat-card { padding: 26px 22px; }
     }
 
-  </style>
+  
+    /* === INTERACTIVE LAPTOP SCREEN === */
+    .floating-stage { display: flex; align-items: center; justify-content: center; gap: 40px; padding: 60px 0; position: relative; min-height: 550px; }
+    .mac-outer { position: relative; z-index: 5; flex-shrink: 0; opacity: 0; transform: scale(0.95); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .mac-outer.visible { opacity: 1; transform: scale(1); }
+    .mac-body { width: 560px; background: #1a1a2e; border: 2px solid rgba(232,184,75,0.35); border-radius: 16px 16px 0 0; overflow: hidden; box-shadow: 0 0 60px rgba(232,184,75,0.15), 0 20px 60px rgba(0,0,0,0.5); }
+    .mac-titlebar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: #111122; }
+    .mac-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mac-dot.r { background: #ff5f57; }
+    .mac-dot.y { background: #ffbd2e; }
+    .mac-dot.g { background: #28c840; }
+    .mac-screen { background: #0d0d18; padding: 20px; min-height: 300px; max-height: 340px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+    .mac-inputbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: #111122; border-top: 1px solid rgba(232,184,75,0.15); }
+    .mac-input-text { color: #666; font-size: 13px; }
+    .mac-input-btn { color: #E8B84B; font-size: 18px; }
+    .mac-base { width: 100%; height: 14px; background: linear-gradient(180deg, #2a2a3a, #1a1a2a); border-radius: 0 0 4px 4px; }
+    .mac-stand { width: 120px; height: 12px; background: linear-gradient(180deg, #2a2a3a, #1a1a2a); margin: 0 auto; border-radius: 0 0 8px 8px; }
+    .agent-msg { display: flex; gap: 10px; align-items: flex-start; opacity: 0; transform: translateY(10px); animation: agentFadeIn 0.5s ease forwards; }
+    .agent-msg.user { flex-direction: row-reverse; }
+    .agent-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .agent-avatar.ai { background: linear-gradient(135deg, #E8B84B, #c9952b); }
+    .agent-avatar.human { background: #333; }
+    .agent-bubble { padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.5; max-width: 380px; }
+    .agent-bubble.ai { background: rgba(232,184,75,0.08); border: 1px solid rgba(232,184,75,0.2); color: #e0d5c0; }
+    .agent-bubble.human { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #ccc; }
+    .agent-label { font-size: 10px; font-weight: 700; color: #E8B84B; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .typing-indicator { display: flex; gap: 4px; padding: 8px 12px; }
+    .typing-dot { width: 6px; height: 6px; background: #E8B84B; border-radius: 50%; animation: typingBounce 1.4s infinite; opacity: 0.4; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes agentFadeIn { to { opacity: 1; transform: translateY(0); } }
+    @keyframes typingBounce { 0%,60%,100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-6px); opacity: 1; } }
+    .float-bubbles-left, .float-bubbles-right { display: flex; flex-direction: column; gap: 16px; flex: 1; max-width: 280px; }
+    .float-bubble { background: rgba(255,255,255,0.04); border: 1px solid rgba(232,184,75,0.15); border-radius: 14px; padding: 16px; font-size: 14px; color: #bbb; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; }
+    .float-bubble .bubble-icon { font-size: 20px; flex-shrink: 0; }
+    @media (max-width: 1100px) { .floating-stage { flex-direction: column; gap: 30px; } .float-bubbles-left, .float-bubbles-right { flex-direction: row; max-width: 100%; flex-wrap: wrap; justify-content: center; } .float-bubble { max-width: 280px; } .mac-body { width: min(560px, 90vw); } }
+    @media (max-width: 600px) { .mac-body { width: 95vw; } .float-bubble { font-size: 13px; padding: 12px; } }
+    
+    </style>
 </head>
 <body>
 
@@ -1554,57 +1588,27 @@
     <div class="reveal" style="text-align:center;margin-bottom:60px;">
       <h2 style="font-size:clamp(30px,4vw,52px);font-weight:900;line-height:1.05;letter-spacing:-0.03em;margin-bottom:20px;">Voici le travail rébarbatif que tu vas pouvoir automatiser</h2>
     </div>
-    <div class="floating-stage" style="position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;">
-      <!-- Mac mockup center -->
-      <div class="mac-outer" style="opacity:0;transform:scale(0.95);transition:opacity 0.6s,transform 0.6s;z-index:5;">
-        <div class="mac-body" style="width:380px;">
-          <div class="mac-titlebar">
-            <div class="mac-dot red"></div><div class="mac-dot yellow"></div><div class="mac-dot green"></div>
+    <div class="floating-stage">
+        <div class="float-bubbles-left">
+          <div class="float-bubble reveal"><span class="bubble-icon">✍️</span> Ton Copywriter rédige tes pubs, emails et pages de vente dans ta voix</div>
+          <div class="float-bubble reveal reveal-delay-1"><span class="bubble-icon">🔍</span> Ton Chercheur analyse tes concurrents, marchés et angles morts</div>
+          <div class="float-bubble reveal reveal-delay-2"><span class="bubble-icon">📋</span> Ton Spécialiste Opérations crée tes SOPs, workflows et documentation</div>
+        </div>
+        <div class="mac-outer">
+          <div class="mac-body">
+            <div class="mac-titlebar"><div class="mac-dot r"></div><div class="mac-dot y"></div><div class="mac-dot g"></div></div>
+            <div class="mac-screen" id="agentScreen"></div>
+            <div class="mac-inputbar"><span class="mac-input-text">Demandez à votre spécialiste…</span><span class="mac-input-btn">↑</span></div>
           </div>
-          <div class="mac-screen" style="min-height:200px;">
-            <div class="mac-msgs">
-              <div class="mac-msg-user">Rédige une page de vente pour ma formation</div>
-              <div class="mac-msg-ai">Voici votre page de vente optimisée avec un hook percutant, les bénéfices clés, la preuve sociale et un CTA irrésistible...</div>
-            </div>
-            <div class="mac-inputbar" style="border-top:1px solid rgba(255,255,255,0.07);padding:10px 12px;display:flex;gap:8px;">
-              <div class="mac-input-fake">Message AI...</div>
-              <div class="mac-send" style="background:var(--gold);">↑</div>
-            </div>
-          </div>
+          <div class="mac-base"></div>
+          <div class="mac-stand"></div>
         </div>
-        <div class="mac-base"></div>
-        <div class="mac-stand"></div>
-      </div>
-      <!-- Floating bubbles -->
-      <div class="float-bubbles-left" style="position:absolute;left:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;max-width:260px;">
-        <div class="float-bubble" style="opacity:0;transform:translateX(-30px);transition:all 0.5s ease 0.2s;">
-          <span style="font-size:16px;">✍️</span>
-          <span>Ton Copywriter rédige tes pubs, emails et pages de vente dans ta voix</span>
-        </div>
-        <div class="float-bubble" style="opacity:0;transform:translateX(-30px);transition:all 0.5s ease 0.5s;">
-          <span style="font-size:16px;">🔍</span>
-          <span>Ton Chercheur analyse tes concurrents, marchés et angles morts</span>
-        </div>
-        <div class="float-bubble" style="opacity:0;transform:translateX(-30px);transition:all 0.5s ease 0.8s;">
-          <span style="font-size:16px;">📋</span>
-          <span>Ton Spécialiste Opérations crée tes SOPs, workflows et documentation</span>
+        <div class="float-bubbles-right">
+          <div class="float-bubble reveal"><span class="bubble-icon">📧</span> Ton Spécialiste Email gère tes séquences, relances et campagnes de nurturing</div>
+          <div class="float-bubble reveal reveal-delay-1"><span class="bubble-icon">🤝</span> Ton Spécialiste Vente rédige tes scripts, traite les objections et close tes deals</div>
+          <div class="float-bubble reveal reveal-delay-2"><span class="bubble-icon">📊</span> Ton Stratège crée tes plans de croissance, analyses de marché et roadmaps de lancement</div>
         </div>
       </div>
-      <div class="float-bubbles-right" style="position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;max-width:260px;">
-        <div class="float-bubble" style="opacity:0;transform:translateX(30px);transition:all 0.5s ease 0.4s;">
-          <span style="font-size:16px;">📧</span>
-          <span>Ton Spécialiste Email gère tes séquences, relances et campagnes de nurturing</span>
-        </div>
-        <div class="float-bubble" style="opacity:0;transform:translateX(30px);transition:all 0.5s ease 0.7s;">
-          <span style="font-size:16px;">🤝</span>
-          <span>Ton Spécialiste Vente rédige tes scripts, traite les objections et close tes deals</span>
-        </div>
-        <div class="float-bubble" style="opacity:0;transform:translateX(30px);transition:all 0.5s ease 1s;">
-          <span style="font-size:16px;">📊</span>
-          <span>Ton Stratège crée tes plans de croissance, analyses de marché et roadmaps de lancement</span>
-        </div>
-      </div>
-    </div>
     <div class="reveal" style="text-align:center;margin-top:40px;">
       <p style="font-size:clamp(20px,3vw,32px);font-weight:800;color:var(--white);">Et 44 autres Spécialistes. Chaque fonction. Chaque jour. Un seul paiement.</p>
     </div>
@@ -1621,7 +1625,7 @@
   }
   .float-bubble.visible { opacity: 1 !important; transform: translateX(0) !important; }
   @media (max-width: 768px) {
-    .floating-stage { flex-direction: column; min-height: auto; gap: 24px; }
+    
     .float-bubbles-left, .float-bubbles-right {
       position: static !important; transform: none !important; max-width: 100% !important; width: 100%;
     }
@@ -1927,5 +1931,43 @@
     }
   })();
 </script>
-</body>
+<script>
+    (function(){
+      var convs=[
+        {m:[{t:'h',x:'Cr\u00E9e une s\u00E9quence email de bienvenue pour mes nouveaux clients'},{t:'a',n:'Nora \u2014 Email',x:'Je pr\u00E9pare une s\u00E9quence de 5 emails : bienvenue, histoire fondatrice, valeur cl\u00E9, preuve sociale, et premi\u00E8re offre. Chaque email est espac\u00E9 de 2 jours\u2026'}]},
+        {m:[{t:'h',x:'Analyse mes concurrents sur le march\u00E9 des formations IA'},{t:'a',n:'\u00C9tienne \u2014 Analyse',x:'J\'ai identifi\u00E9 4 concurrents directs. Ton angle diff\u00E9renciant : tu es le seul \u00E0 proposer des sp\u00E9cialistes pr\u00E9-configur\u00E9s en fran\u00E7ais. Voici la matrice SWOT\u2026'}]},
+        {m:[{t:'h',x:'R\u00E9dige un post LinkedIn sur les b\u00E9n\u00E9fices de l\'IA pour les entrepreneurs'},{t:'a',n:'L\u00E9onard \u2014 LinkedIn',x:'Hook : \"J\'ai remplac\u00E9 3 outils SaaS par un seul prompt.\" Corps structur\u00E9 en 5 points avec storytelling personnel et CTA vers ta newsletter\u2026'}]},
+        {m:[{t:'h',x:'Cr\u00E9e un script de vente pour mon offre \u00E0 997\u20AC'},{t:'a',n:'Chlo\u00E9 \u2014 Script Vente',x:'Structure PASTOR : Probl\u00E8me > Amplification > Solution > T\u00E9moignages > Offre > R\u00E9ponse objections. Ouverture avec la douleur principale de ton avatar\u2026'}]}
+      ];
+      var ci=0,sc=document.getElementById('agentScreen');
+      if(!sc)return;
+      function run(){
+        sc.innerHTML='';
+        var cv=convs[ci],d=0;
+        cv.m.forEach(function(msg,i){
+          setTimeout(function(){
+            if(i>0){
+              var tp=document.createElement('div');tp.className='agent-msg';
+              tp.innerHTML='<div class="agent-avatar ai">\uD83E\uDD16</div><div class="agent-bubble ai"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>';
+              sc.appendChild(tp);sc.scrollTop=sc.scrollHeight;
+              setTimeout(function(){tp.remove();add(msg);},1200);
+            }else{add(msg);}
+          },d);
+          d+=(i===0?800:2500);
+        });
+        setTimeout(function(){ci=(ci+1)%convs.length;run();},d+4000);
+      }
+      function add(msg){
+        var d=document.createElement('div');
+        d.className='agent-msg'+(msg.t==='h'?' user':'');
+        var av=msg.t==='h'?'<div class="agent-avatar human">\uD83D\uDC64</div>':'<div class="agent-avatar ai">\uD83E\uDD16</div>';
+        var lb=msg.n?'<div class="agent-label">'+msg.n+'</div>':'';
+        d.innerHTML=av+'<div class="agent-bubble '+(msg.t==='h'?'human':'ai')+'">'+lb+msg.x+'</div>';
+        sc.appendChild(d);sc.scrollTop=sc.scrollHeight;
+      }
+      var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){setTimeout(run,500);obs.disconnect();}});},{threshold:0.3});
+      var st=document.querySelector('.floating-stage');
+      if(st)obs.observe(st);
+    })();</script>
+    </body>
 </html>
