@@ -562,6 +562,52 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
+    /* ========== GOLD SPARKLES ========== */
+    .sparkles-container {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--gold-light);
+      border-radius: 50%;
+      opacity: 0;
+      animation: sparkle-float 4s ease-in-out infinite;
+      box-shadow: 0 0 6px 2px rgba(232,184,75,0.4);
+    }
+    @keyframes sparkle-float {
+      0% { opacity: 0; transform: translateY(0) scale(0.5); }
+      20% { opacity: 1; }
+      50% { opacity: 0.8; transform: translateY(-40px) scale(1); }
+      80% { opacity: 0.3; }
+      100% { opacity: 0; transform: translateY(-80px) scale(0.3); }
+    }
+    .s1  { left:5%;  top:20%; animation-delay:0s;   animation-duration:3.5s; width:3px; height:3px; }
+    .s2  { left:15%; top:60%; animation-delay:0.5s;  animation-duration:4.2s; width:5px; height:5px; }
+    .s3  { left:25%; top:40%; animation-delay:1s;    animation-duration:3.8s; }
+    .s4  { left:35%; top:75%; animation-delay:1.5s;  animation-duration:4.5s; width:3px; height:3px; }
+    .s5  { left:45%; top:30%; animation-delay:0.3s;  animation-duration:3.2s; width:5px; height:5px; }
+    .s6  { left:55%; top:55%; animation-delay:2s;    animation-duration:4s; }
+    .s7  { left:65%; top:25%; animation-delay:0.8s;  animation-duration:3.6s; width:3px; height:3px; }
+    .s8  { left:75%; top:65%; animation-delay:1.3s;  animation-duration:4.3s; }
+    .s9  { left:85%; top:45%; animation-delay:0.6s;  animation-duration:3.9s; width:5px; height:5px; }
+    .s10 { left:95%; top:80%; animation-delay:1.8s;  animation-duration:4.1s; width:3px; height:3px; }
+    .s11 { left:10%; top:85%; animation-delay:2.2s;  animation-duration:3.4s; }
+    .s12 { left:20%; top:15%; animation-delay:0.9s;  animation-duration:4.4s; width:5px; height:5px; }
+    .s13 { left:40%; top:90%; animation-delay:1.7s;  animation-duration:3.7s; width:3px; height:3px; }
+    .s14 { left:50%; top:10%; animation-delay:2.5s;  animation-duration:4.6s; }
+    .s15 { left:60%; top:70%; animation-delay:0.4s;  animation-duration:3.3s; width:5px; height:5px; }
+    .s16 { left:70%; top:50%; animation-delay:1.1s;  animation-duration:4.8s; width:3px; height:3px; }
+    .s17 { left:80%; top:35%; animation-delay:2.3s;  animation-duration:3.5s; }
+    .s18 { left:90%; top:20%; animation-delay:0.7s;  animation-duration:4.2s; width:5px; height:5px; }
+    .s19 { left:30%; top:50%; animation-delay:1.9s;  animation-duration:3.9s; width:3px; height:3px; }
+    .s20 { left:48%; top:68%; animation-delay:2.8s;  animation-duration:4.7s; }
+
     /* ========== RESPONSIVE ========== */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
@@ -993,6 +1039,68 @@
           <span class="auto-bubble-icon">🤝</span>
           <span>Votre Spécialiste Commercial rédige vos scripts, gère les objections et close</span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="divider" />
+
+<!-- ===== L'ALTERNATIVE : FREELANCES ===== -->
+<section class="section freelance-section" style="background:var(--bg);position:relative;overflow:hidden;">
+  <!-- Sparkles background -->
+  <div class="sparkles-container" aria-hidden="true">
+    <div class="sparkle s1"></div><div class="sparkle s2"></div><div class="sparkle s3"></div>
+    <div class="sparkle s4"></div><div class="sparkle s5"></div><div class="sparkle s6"></div>
+    <div class="sparkle s7"></div><div class="sparkle s8"></div><div class="sparkle s9"></div>
+    <div class="sparkle s10"></div><div class="sparkle s11"></div><div class="sparkle s12"></div>
+    <div class="sparkle s13"></div><div class="sparkle s14"></div><div class="sparkle s15"></div>
+    <div class="sparkle s16"></div><div class="sparkle s17"></div><div class="sparkle s18"></div>
+    <div class="sparkle s19"></div><div class="sparkle s20"></div>
+  </div>
+  <!-- Gold glow orbs -->
+  <div style="position:absolute;top:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(232,184,75,0.12) 0%,transparent 70%);pointer-events:none;z-index:0;"></div>
+  <div style="position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(232,184,75,0.08) 0%,transparent 70%);pointer-events:none;z-index:0;"></div>
+
+  <div style="max-width:900px;margin:0 auto;padding:80px 32px;position:relative;z-index:1;">
+    <div class="section-center reveal" style="margin-bottom:48px;">
+      <p class="section-label">L'alternative</p>
+      <h2 class="section-h2">Engager des freelances te coûterait&nbsp;4&nbsp;997€<span style="color:var(--gray3);font-size:0.5em;vertical-align:super;">/mois</span></h2>
+      <p class="section-body" style="max-width:600px;">Voici ce que tu paierais chaque mois pour couvrir les mêmes compétences :</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:40px;">
+      <div class="reveal" style="background:var(--bg3);border:1px solid var(--gold-border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(4px);">
+        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Copywriter</div><div style="font-size:12px;color:var(--gray3);">Pages de vente, emails, pubs</div></div>
+        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">800€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
+      </div>
+      <div class="reveal reveal-delay-1" style="background:var(--bg3);border:1px solid var(--gold-border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(4px);">
+        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Stratège business</div><div style="font-size:12px;color:var(--gray3);">Vision, plan 90j, KPIs</div></div>
+        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">1 200€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
+      </div>
+      <div class="reveal" style="background:var(--bg3);border:1px solid var(--gold-border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(4px);">
+        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Community Manager</div><div style="font-size:12px;color:var(--gray3);">Instagram, LinkedIn, contenu</div></div>
+        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">600€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
+      </div>
+      <div class="reveal reveal-delay-1" style="background:var(--bg3);border:1px solid var(--gold-border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(4px);">
+        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Expert SEO</div><div style="font-size:12px;color:var(--gray3);">Articles, mots-clés, audit</div></div>
+        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">700€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
+      </div>
+      <div class="reveal" style="background:var(--bg3);border:1px solid var(--gold-border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(4px);">
+        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Coach commercial</div><div style="font-size:12px;color:var(--gray3);">Scripts, closing, objections</div></div>
+        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">900€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
+      </div>
+      <div class="reveal reveal-delay-1" style="background:var(--bg3);border:1px solid var(--gold-border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(4px);">
+        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Expert Meta Ads</div><div style="font-size:12px;color:var(--gray3);">Accroches, campagnes, analyse</div></div>
+        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">797€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center;padding:32px;background:linear-gradient(135deg,rgba(232,184,75,0.12),rgba(232,184,75,0.04));border:2px solid var(--gold-border);border-radius:16px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(232,184,75,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+      <div style="position:relative;z-index:1;">
+        <div style="font-size:14px;color:var(--gray2);margin-bottom:8px;">Total freelances :</div>
+        <div style="font-size:42px;font-weight:900;color:var(--gold-light);letter-spacing:-0.02em;text-decoration:line-through;text-decoration-color:rgba(255,100,100,0.6);">4 997€<span style="font-size:16px;color:var(--gray3);text-decoration:none;">/mois</span></div>
+        <div style="margin:16px 0 4px;font-size:14px;color:var(--gray3);">Les 50 Spécialistes IA :</div>
+        <div style="font-size:52px;font-weight:900;color:var(--white);letter-spacing:-0.03em;text-shadow:0 0 30px rgba(232,184,75,0.3);">57€</div>
+        <div style="font-size:14px;color:var(--gold-light);font-weight:600;">Un seul paiement. Pour toujours.</div>
       </div>
     </div>
   </div>
@@ -1540,53 +1648,18 @@
   </div>
 </section>
 
-<!-- ===== L'ALTERNATIVE : FREELANCES ===== -->
-<section class="section" style="background:var(--bg);">
-  <div style="max-width:900px;margin:0 auto;padding:80px 32px;">
-    <div class="section-center reveal" style="margin-bottom:48px;">
-      <p class="section-label">L'alternative</p>
-      <h2 class="section-h2">Engager des freelances te coûterait&nbsp;4&nbsp;997€<span style="color:var(--gray3);font-size:0.5em;vertical-align:super;">/mois</span></h2>
-      <p class="section-body" style="max-width:600px;">Voici ce que tu paierais chaque mois pour couvrir les mêmes compétences :</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:40px;">
-      <div class="reveal" style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
-        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Copywriter</div><div style="font-size:12px;color:var(--gray3);">Pages de vente, emails, pubs</div></div>
-        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">800€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
-      </div>
-      <div class="reveal reveal-delay-1" style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
-        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Stratège business</div><div style="font-size:12px;color:var(--gray3);">Vision, plan 90j, KPIs</div></div>
-        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">1 200€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
-      </div>
-      <div class="reveal" style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
-        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Community Manager</div><div style="font-size:12px;color:var(--gray3);">Instagram, LinkedIn, contenu</div></div>
-        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">600€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
-      </div>
-      <div class="reveal reveal-delay-1" style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
-        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Expert SEO</div><div style="font-size:12px;color:var(--gray3);">Articles, mots-clés, audit</div></div>
-        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">700€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
-      </div>
-      <div class="reveal" style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
-        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Coach commercial</div><div style="font-size:12px;color:var(--gray3);">Scripts, closing, objections</div></div>
-        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">900€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
-      </div>
-      <div class="reveal reveal-delay-1" style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">
-        <div><div style="font-weight:700;color:var(--white);font-size:15px;">Expert Meta Ads</div><div style="font-size:12px;color:var(--gray3);">Accroches, campagnes, analyse</div></div>
-        <div style="font-size:18px;font-weight:800;color:var(--gold-light);">797€<span style="font-size:11px;color:var(--gray3);">/mois</span></div>
-      </div>
-    </div>
-    <div class="reveal" style="text-align:center;padding:32px;background:linear-gradient(135deg,rgba(232,184,75,0.08),rgba(232,184,75,0.03));border:1px solid var(--gold-border);border-radius:16px;">
-      <div style="font-size:14px;color:var(--gray2);margin-bottom:8px;">Total freelances :</div>
-      <div style="font-size:42px;font-weight:900;color:var(--gold-light);letter-spacing:-0.02em;text-decoration:line-through;text-decoration-color:rgba(255,100,100,0.6);">4 997€<span style="font-size:16px;color:var(--gray3);text-decoration:none;">/mois</span></div>
-      <div style="margin:16px 0 4px;font-size:14px;color:var(--gray3);">Les 50 Spécialistes IA :</div>
-      <div style="font-size:52px;font-weight:900;color:var(--white);letter-spacing:-0.03em;">57€</div>
-      <div style="font-size:14px;color:var(--gold-light);font-weight:600;">Un seul paiement. Pour toujours.</div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== PRICING ===== -->
-<section class="section" id="pricing" style="background:var(--bg2);">
-  <div class="section-inner">
+<section class="section" id="pricing" style="background:var(--bg2);position:relative;overflow:hidden;">
+  <!-- Sparkles background -->
+  <div class="sparkles-container" aria-hidden="true">
+    <div class="sparkle s3"></div><div class="sparkle s6"></div><div class="sparkle s9"></div>
+    <div class="sparkle s12"></div><div class="sparkle s15"></div><div class="sparkle s18"></div>
+    <div class="sparkle s1"></div><div class="sparkle s7"></div><div class="sparkle s13"></div>
+    <div class="sparkle s20"></div><div class="sparkle s5"></div><div class="sparkle s11"></div>
+  </div>
+  <div style="position:absolute;top:-80px;right:-80px;width:350px;height:350px;background:radial-gradient(circle,rgba(232,184,75,0.1) 0%,transparent 70%);pointer-events:none;z-index:0;"></div>
+  <div style="position:absolute;bottom:-80px;left:-80px;width:350px;height:350px;background:radial-gradient(circle,rgba(232,184,75,0.06) 0%,transparent 70%);pointer-events:none;z-index:0;"></div>
+  <div class="section-inner" style="position:relative;z-index:1;">
     <div class="section-center reveal">
       <p class="section-label">Offre de lancement — 48h seulement</p>
       <h2 class="section-h2">Choisissez votre accès</h2>
