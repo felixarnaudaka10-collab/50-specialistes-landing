@@ -2360,34 +2360,60 @@
   // ===== Animation cyclique mac-outer-1 (premier automate-stage) =====
   (function(){
     var convs1=[
-      {u:'Cr\u00E9e une s\u00E9quence email de bienvenue pour mes nouveaux clients',n:'Nora \u2014 Email',r:"Voici votre s\u00E9quence en 5 emails, optimis\u00E9e pour maximiser l'engagement et la conversion d\u00E8s le premier contact\u2026"},
-      {u:'R\u00E9dige un post LinkedIn sur les b\u00E9n\u00E9fices de l\'IA pour les entrepreneurs',n:'L\u00E9onard \u2014 LinkedIn',r:"Hook : \"J'ai remplac\u00E9 3 outils SaaS par un seul prompt.\" Corps en 5 points avec storytelling personnel et CTA newsletter\u2026"},
-      {u:'Analyse mes concurrents sur le march\u00E9 des formations IA',n:'\u00C9tienne \u2014 Analyse',r:"J'ai identifi\u00E9 4 concurrents directs. Ton angle diff\u00E9renciant : tu es le seul \u00E0 proposer des sp\u00E9cialistes pr\u00E9-configur\u00E9s en fran\u00E7ais. Voici la matrice SWOT\u2026"},
-      {u:'Cr\u00E9e un script de vente pour mon offre \u00E0 997\u20AC',n:'Chlo\u00E9 \u2014 Script Vente',r:"Ouverture : question qui cr\u00E9e l'urgence. D\u00E9veloppement : 3 objections trait\u00E9es. Closing : ancrage prix + garantie. Taux de conversion estim\u00E9 : +34%\u2026"},
+      {u:'Crée une séquence email de bienvenue pour mes nouveaux clients',n:'Nora — Email',r:"Voici votre séquence en 5 emails, optimisée pour maximiser l'engagement et la conversion dès le premier contact…"},
+      {u:"Rédige un post LinkedIn sur les bénéfices de l'IA pour les entrepreneurs",n:'Léonard — LinkedIn',r:"Hook : \"J'ai remplacé 3 outils SaaS par un seul prompt.\" Corps en 5 points avec storytelling personnel et CTA newsletter…"},
+      {u:"Analyse mes concurrents sur le marché des formations IA",n:'Étienne — Analyse',r:"J'ai identifié 4 concurrents directs. Ton angle différenciant : tu es le seul à proposer des spécialistes pré-configurés en français. Voici la matrice SWOT…"},
+      {u:"Crée un script de vente pour mon offre à 997€",n:'Chloé — Script Vente',r:"Ouverture : question qui crée l'urgence. Développement : 3 objections traitées. Closing : ancrage prix + garantie. Taux de conversion estimé : +34%…"},
     ];
     var ci1=0;
+    var started1=false;
     var u1=document.getElementById('mac1-user');
     var a1=document.getElementById('mac1-ai');
     var t1=document.getElementById('mac1-typing');
+    var macEl1=document.getElementById('mac-outer');
     if(!u1||!a1||!t1)return;
     function runConv1(){
       var c=convs1[ci1];
-      u1.style.opacity='0';a1.style.opacity='0';t1.style.display='none';
-      setTimeout(function(){u1.textContent=c.u;u1.style.transition='opacity 0.4s';u1.style.opacity='1';},300);
-      setTimeout(function(){t1.style.display='flex';},900);
+      if(ci1>0){u1.style.opacity='0';a1.style.opacity='0';}
+      t1.style.display='none';
+      var delay=ci1===0?0:300;
+      setTimeout(function(){
+        u1.textContent=c.u;
+        u1.style.transition='opacity 0.4s';u1.style.opacity='1';
+      },delay);
+      setTimeout(function(){t1.style.display='flex';},delay+600);
       setTimeout(function(){
         t1.style.display='none';
-        a1.innerHTML='\u2746 <strong style="color:var(--white)">'+c.n+'</strong><br><br>'+c.r;
+        a1.innerHTML='❆ <strong style="color:var(--white)">'+c.n+'</strong><br><br>'+c.r;
         a1.style.transition='opacity 0.4s';a1.style.opacity='1';
-      },2200);
+      },delay+1900);
       setTimeout(function(){ci1=(ci1+1)%convs1.length;runConv1();},6000);
     }
+    function startMac1(){
+      if(started1)return;
+      started1=true;
+      // Petite pause pour laisser le mac apparaître (transition 0.8s)
+      setTimeout(runConv1, 900);
+    }
+    // Observer mac-outer: démarrer quand il devient visible
+    if(macEl1){
+      var mo=new MutationObserver(function(mutations){
+        mutations.forEach(function(m){
+          if(macEl1.classList.contains('visible')){startMac1();mo.disconnect();}
+        });
+      });
+      mo.observe(macEl1,{attributes:true,attributeFilter:['class']});
+    }
+    // Fallback: IntersectionObserver sur #automate-stage
     var stage1=document.getElementById('automate-stage');
-    if(!stage1)return;
-    var started1=false;
-    new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting&&!started1){started1=true;runConv1();}
-    },{threshold:0.3}).observe(stage1);
+    if(stage1){
+      new IntersectionObserver(function(entries){
+        if(entries[0].isIntersecting){
+          setTimeout(startMac1, 1000);
+          this.disconnect();
+        }
+      },{threshold:0.2}).observe(stage1);
+    }
   })();
   // ===== Animation cyclique mac-outer-2 (second automate-stage) =====
   (function() {
