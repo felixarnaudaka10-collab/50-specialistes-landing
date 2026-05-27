@@ -1184,12 +1184,12 @@
           </div>
           <div class="mac-screen">
             <div class="mac-msgs">
-              <div class="mac-msg-user">Crée une séquence email de bienvenue pour mes nouveaux clients</div>
-              <div class="mac-msg-ai">
-                ✦ <strong style="color:var(--white)">Spécialiste Email activé</strong><br><br>
+              <div class="mac-msg-user" id="mac1-user">Crée une séquence email de bienvenue pour mes nouveaux clients</div>
+              <div class="mac-msg-ai" id="mac1-ai">
+                ✦ <strong style="color:var(--white)">Nora — Email</strong><br><br>
                 Voici votre séquence en 5 emails, optimisée pour maximiser l'engagement et la conversion dès le premier contact…
               </div>
-              <div class="mac-typing"><span></span><span></span><span></span></div>
+              <div class="mac-typing" id="mac1-typing"><span></span><span></span><span></span></div>
             </div>
           </div>
           <div class="mac-inputbar">
@@ -2357,43 +2357,38 @@
   })();
 </script>
 <script>
-    (function(){
-      var convs=[
-        {m:[{t:'h',x:'Cr\u00E9e une s\u00E9quence email de bienvenue pour mes nouveaux clients'},{t:'a',n:'Nora \u2014 Email',x:'Je pr\u00E9pare une s\u00E9quence de 5 emails : bienvenue, histoire fondatrice, valeur cl\u00E9, preuve sociale, et premi\u00E8re offre. Chaque email est espac\u00E9 de 2 jours\u2026'}]},
-        {m:[{t:'h',x:'Analyse mes concurrents sur le march\u00E9 des formations IA'},{t:'a',n:'\u00C9tienne \u2014 Analyse',x:'J\'ai identifi\u00E9 4 concurrents directs. Ton angle diff\u00E9renciant : tu es le seul \u00E0 proposer des sp\u00E9cialistes pr\u00E9-configur\u00E9s en fran\u00E7ais. Voici la matrice SWOT\u2026'}]},
-        {m:[{t:'h',x:'R\u00E9dige un post LinkedIn sur les b\u00E9n\u00E9fices de l\'IA pour les entrepreneurs'},{t:'a',n:'L\u00E9onard \u2014 LinkedIn',x:'Hook : \"J\'ai remplac\u00E9 3 outils SaaS par un seul prompt.\" Corps structur\u00E9 en 5 points avec storytelling personnel et CTA vers ta newsletter\u2026'}]},
-        {m:[{t:'h',x:'Cr\u00E9e un script de vente pour mon offre \u00E0 997\u20AC'},{t:'a',n:'Chlo\u00E9 \u2014 Script Vente',x:'Structure PASTOR : Probl\u00E8me > Amplification > Solution > T\u00E9moignages > Offre > R\u00E9ponse objections. Ouverture avec la douleur principale de ton avatar\u2026'}]}
-      ];
-      var ci=0,sc=document.getElementById('agentScreen');
-      if(!sc)return;
-      function run(){
-        sc.innerHTML='';
-        var cv=convs[ci],d=0;
-        cv.m.forEach(function(msg,i){
-          setTimeout(function(){
-            if(i>0){
-              var tp=document.createElement('div');tp.className='agent-msg';
-              tp.innerHTML='<div class="agent-avatar ai">\uD83E\uDD16</div><div class="agent-bubble ai"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>';
-              sc.appendChild(tp);sc.scrollTop=sc.scrollHeight;
-              setTimeout(function(){tp.remove();add(msg);},1200);
-            }else{add(msg);}
-          },d);
-          d+=(i===0?800:2500);
-        });
-        setTimeout(function(){ci=(ci+1)%convs.length;run();},d+4000);
-      }
-      function add(msg){
-        var d=document.createElement('div');
-        d.className='agent-msg'+(msg.t==='h'?' user':'');
-        var av=msg.t==='h'?'<div class="agent-avatar human">\uD83D\uDC64</div>':'<div class="agent-avatar ai">\uD83E\uDD16</div>';
-        var lb=msg.n?'<div class="agent-label">'+msg.n+'</div>':'';
-        d.innerHTML=av+'<div class="agent-bubble '+(msg.t==='h'?'human':'ai')+'">'+lb+msg.x+'</div>';
-        sc.appendChild(d);sc.scrollTop=sc.scrollHeight;
-      }
-      var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){setTimeout(run,500);obs.disconnect();}});},{threshold:0.3});
-      var st=document.querySelector('.floating-stage');
-      if(st)obs.observe(st);
-    })();
+  // ===== Animation cyclique mac-outer-1 (premier automate-stage) =====
+  (function(){
+    var convs1=[
+      {u:'Cr\u00E9e une s\u00E9quence email de bienvenue pour mes nouveaux clients',n:'Nora \u2014 Email',r:"Voici votre s\u00E9quence en 5 emails, optimis\u00E9e pour maximiser l'engagement et la conversion d\u00E8s le premier contact\u2026"},
+      {u:'R\u00E9dige un post LinkedIn sur les b\u00E9n\u00E9fices de l\'IA pour les entrepreneurs',n:'L\u00E9onard \u2014 LinkedIn',r:"Hook : \"J'ai remplac\u00E9 3 outils SaaS par un seul prompt.\" Corps en 5 points avec storytelling personnel et CTA newsletter\u2026"},
+      {u:'Analyse mes concurrents sur le march\u00E9 des formations IA',n:'\u00C9tienne \u2014 Analyse',r:"J'ai identifi\u00E9 4 concurrents directs. Ton angle diff\u00E9renciant : tu es le seul \u00E0 proposer des sp\u00E9cialistes pr\u00E9-configur\u00E9s en fran\u00E7ais. Voici la matrice SWOT\u2026"},
+      {u:'Cr\u00E9e un script de vente pour mon offre \u00E0 997\u20AC',n:'Chlo\u00E9 \u2014 Script Vente',r:"Ouverture : question qui cr\u00E9e l'urgence. D\u00E9veloppement : 3 objections trait\u00E9es. Closing : ancrage prix + garantie. Taux de conversion estim\u00E9 : +34%\u2026"},
+    ];
+    var ci1=0;
+    var u1=document.getElementById('mac1-user');
+    var a1=document.getElementById('mac1-ai');
+    var t1=document.getElementById('mac1-typing');
+    if(!u1||!a1||!t1)return;
+    function runConv1(){
+      var c=convs1[ci1];
+      u1.style.opacity='0';a1.style.opacity='0';t1.style.display='none';
+      setTimeout(function(){u1.textContent=c.u;u1.style.transition='opacity 0.4s';u1.style.opacity='1';},300);
+      setTimeout(function(){t1.style.display='flex';},900);
+      setTimeout(function(){
+        t1.style.display='none';
+        a1.innerHTML='\u2746 <strong style="color:var(--white)">'+c.n+'</strong><br><br>'+c.r;
+        a1.style.transition='opacity 0.4s';a1.style.opacity='1';
+      },2200);
+      setTimeout(function(){ci1=(ci1+1)%convs1.length;runConv1();},6000);
+    }
+    var stage1=document.getElementById('automate-stage');
+    if(!stage1)return;
+    var started1=false;
+    new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting&&!started1){started1=true;runConv1();}
+    },{threshold:0.3}).observe(stage1);
+  })();
   // ===== Animation cyclique mac-outer-2 (second automate-stage) =====
   (function() {
     var convs2 = [
