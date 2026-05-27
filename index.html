@@ -1053,16 +1053,25 @@
       <p class="hero-pre">Le Livre d'Or des Spécialistes IA pour Claude</p>
       <h1 class="hero-h1">70 experts autonomes dans Claude. Votre équipe complète, à vie.</h1>
       <p class="hero-subtitle">Marketing, vente, contenu, copywriting, stratégie, IA — 70 spécialistes pour multiplier votre production par 10, que vous soyez salarié, freelance, étudiant ou créateur</p>
-      <p class="hero-body">Un spécialiste pour chaque partie de votre business. Votre responsable réseaux sociaux, copywriter, closer, stratège, expert LinkedIn, rédacteur SEO, créateur de funnel, et 63 autres — tous prêts à bosser pour vous.</p>
+      <p class="hero-body">Un spécialiste pour chaque partie de votre business. Que tu sois entrepreneur, freelance ou créateur, ton responsable réseaux sociaux, copywriter, closer, stratège, expert LinkedIn, rédacteur SEO, créateur de funnel, et 63 autres — tous prêts à bosser pour toi dès aujourd'hui.</p>
 
       <a href="#pricing" class="cta-btn large">
         <span class="cta-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
         <span class="cta-btn-text">Choisir mon pack</span>
       </a>
       <p class="cta-guarantee" style="margin-top:12px;">Satisfait ou remboursé 14 jours — zéro risque.</p>
-      <div class="hero-included">
-        <span>🔒</span>
-        <div><strong>INCLUS :</strong> Guide d'installation vidéo (3 min) · Mises à jour gratuites · Compatible Claude Cowork Mac &amp; Windows · Accès à vie</div>
+      <div class="hero-included" style="flex-direction:column;align-items:flex-start;gap:10px;">
+        <div style="display:flex;align-items:center;gap:8px;"><span>🔒</span><strong style="color:var(--white)">INCLUS avec votre accès :</strong></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;font-size:13px;color:rgba(255,255,255,0.8);">
+          <div>✅ Guide d'installation vidéo (3 min)</div>
+          <div>✅ Accès au Claude Business LAB (Skool)</div>
+          <div>✅ Mises à jour gratuites à vie</div>
+          <div>✅ Communauté active d'entrepreneurs IA</div>
+          <div>✅ Compatible Claude Cowork Mac &amp; Windows</div>
+          <div>✅ Vidéo de présentation complète (7-8 min)</div>
+          <div>✅ Accès à vie — sans abonnement</div>
+          <div>✅ Vidéos explicatives pour chaque spécialiste</div>
+        </div>
       </div>
     </div>
     <div class="hero-right reveal reveal-delay-2">
@@ -1885,14 +1894,13 @@
             <div class="mac-dot green"></div>
           </div>
           <div class="mac-screen">
-            <div class="mac-msgs">
-              <div class="mac-msg-user">Rédige un post LinkedIn viral sur la productivité IA</div>
-              <div class="mac-msg-ai">
+            <div class="mac-msgs" id="mac2-msgs">
+              <div class="mac-msg-user" id="mac2-user">Rédige un post LinkedIn viral sur la productivité IA</div>
+              <div class="mac-msg-ai" id="mac2-ai">
                 ✦ <strong style="color:var(--white)">Spécialiste LinkedIn activé</strong><br><br>
                 Voici votre post optimisé pour l'engagement : hook percutant, structure en 3 actes, CTA fort…
               </div>
-              <div class="mac-typing"><span></span><span></span><span></span></div>
-            </div>
+              <div class="mac-typing" id="mac2-typing"><span></span><span></span><span></span></div>
           </div>
           <div class="mac-inputbar">
             <div class="mac-input-fake">Demandez à votre spécialiste…</div>
@@ -2385,7 +2393,64 @@
       var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){setTimeout(run,500);obs.disconnect();}});},{threshold:0.3});
       var st=document.querySelector('.floating-stage');
       if(st)obs.observe(st);
-    })();</script>
+    })();
+  // ===== Animation cyclique mac-outer-2 (second automate-stage) =====
+  (function() {
+    var convs2 = [
+      {u:'Rédige un post LinkedIn viral sur la productivité IA', n:'Léonard — LinkedIn', r:"Hook : "J'ai remplacé 3 outils par un seul prompt." Structure en 5 points, storytelling + CTA newsletter…"},
+      {u:'Crée un plan de contenu Instagram pour ce mois', n:'Clara — Instagram', r:'30 posts planifiés : 12 Reels éducatifs, 10 carousels inspiration, 8 Stories coulisses. Tous avec hooks et légendes rédigés…'},
+      {u:'Analyse mes concurrents et trouve mon angle différenciant', n:'Étienne — Analyse Marché', r:"4 concurrents identifiés. Ton angle unique : tu es le seul à proposer des spécialistes IA pré-configurés en français. Voici la matrice SWOT…"},
+      {u:'Rédige un email de relance pour mes prospects froids', n:'Nora — Email Marketing', r:'Objet : "Je ne veux pas vous déranger, mais…" — Structure : rappel contexte, nouvelle valeur, CTA doux. Taux ouverture estimé 34%…'},
+    ];
+    var ci2 = 0;
+    var uEl = document.getElementById('mac2-user');
+    var aEl = document.getElementById('mac2-ai');
+    var tEl = document.getElementById('mac2-typing');
+    if (!uEl || !aEl || !tEl) return;
+
+    function runConv2() {
+      var conv = convs2[ci2];
+      // Reset
+      uEl.style.opacity = '0';
+      aEl.style.opacity = '0';
+      tEl.style.display = 'none';
+
+      setTimeout(function() {
+        uEl.textContent = conv.u;
+        uEl.style.transition = 'opacity 0.4s';
+        uEl.style.opacity = '1';
+      }, 300);
+
+      setTimeout(function() {
+        tEl.style.display = 'flex';
+      }, 900);
+
+      setTimeout(function() {
+        tEl.style.display = 'none';
+        aEl.innerHTML = '✦ <strong style="color:var(--white)">' + conv.n + '</strong><br><br>' + conv.r;
+        aEl.style.transition = 'opacity 0.4s';
+        aEl.style.opacity = '1';
+      }, 2200);
+
+      setTimeout(function() {
+        ci2 = (ci2 + 1) % convs2.length;
+        runConv2();
+      }, 6000);
+    }
+
+    // Démarrer quand la section entre dans le viewport
+    var mac2outer = document.getElementById('mac-outer-2');
+    if (!mac2outer) return;
+    var started2 = false;
+    new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !started2) {
+        started2 = true;
+        runConv2();
+      }
+    }, { threshold: 0.3 }).observe(mac2outer);
+  })();
+
+</script>
     </body>
 </html>
 
