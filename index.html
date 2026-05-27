@@ -1855,58 +1855,73 @@
   </div>
 </section>
 
-<!-- ===== FLOATING SPECIALISTS ===== -->
+<!-- ===== FLOATING SPECIALISTS (remplacé par automate-stage v2) ===== -->
 <section class="section" style="background:linear-gradient(180deg, var(--bg) 0%, #1a0f00 50%, var(--bg) 100%);overflow:hidden;">
-  <div style="max-width:1100px;margin:0 auto;padding:80px 32px;">
-    <div class="reveal" style="text-align:center;margin-bottom:60px;">
-      <h2 style="font-size:clamp(30px,4vw,52px);font-weight:900;line-height:1.05;letter-spacing:-0.03em;margin-bottom:20px;">Voici le travail rébarbatif que tu vas pouvoir automatiser</h2>
+  <div class="automate-wrap">
+    <div class="section-center reveal">
+      <p class="section-label">Automatisation</p>
+      <h2 class="section-h2">Voici le travail rébarbatif que tu vas pouvoir automatiser</h2>
     </div>
-    <div class="floating-stage">
-        <div class="float-bubbles-left">
-          <div class="float-bubble reveal"><span class="bubble-icon">✍️</span> Ton Copywriter rédige tes pubs, emails et pages de vente dans ta voix</div>
-          <div class="float-bubble reveal reveal-delay-1"><span class="bubble-icon">🔍</span> Ton Chercheur analyse tes concurrents, marchés et angles morts</div>
-          <div class="float-bubble reveal reveal-delay-2"><span class="bubble-icon">📋</span> Ton Spécialiste Opérations crée tes SOPs, workflows et documentation</div>
+    <div class="automate-stage">
+      <div class="auto-bubbles-left">
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">✍️</span>
+          <span>Ton Copywriter rédige tes pubs, emails et pages de vente dans ta voix</span>
         </div>
-        <div class="mac-outer">
-          <div class="mac-body">
-            <div class="mac-titlebar"><div class="mac-dot r"></div><div class="mac-dot y"></div><div class="mac-dot g"></div></div>
-            <div class="mac-screen" id="agentScreen"></div>
-            <div class="mac-inputbar"><span class="mac-input-text">Demandez à votre spécialiste…</span><span class="mac-input-btn">↑</span></div>
-          </div>
-          <div class="mac-base"></div>
-          <div class="mac-stand"></div>
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">🔍</span>
+          <span>Ton Chercheur analyse tes concurrents, marchés et angles morts</span>
         </div>
-        <div class="float-bubbles-right">
-          <div class="float-bubble reveal"><span class="bubble-icon">📧</span> Ton Spécialiste Email gère tes séquences, relances et campagnes de nurturing</div>
-          <div class="float-bubble reveal reveal-delay-1"><span class="bubble-icon">🤝</span> Ton Spécialiste Vente rédige tes scripts, traite les objections et close tes deals</div>
-          <div class="float-bubble reveal reveal-delay-2"><span class="bubble-icon">📊</span> Ton Stratège crée tes plans de croissance, analyses de marché et roadmaps de lancement</div>
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">📋</span>
+          <span>Ton Spécialiste Opérations crée tes SOPs, workflows et documentation</span>
         </div>
       </div>
+      <div class="mac-outer" id="mac-outer-2">
+        <div class="mac-body">
+          <div class="mac-titlebar">
+            <div class="mac-dot red"></div>
+            <div class="mac-dot yellow"></div>
+            <div class="mac-dot green"></div>
+          </div>
+          <div class="mac-screen">
+            <div class="mac-msgs">
+              <div class="mac-msg-user">Rédige un post LinkedIn viral sur la productivité IA</div>
+              <div class="mac-msg-ai">
+                ✦ <strong style="color:var(--white)">Spécialiste LinkedIn activé</strong><br><br>
+                Voici votre post optimisé pour l'engagement : hook percutant, structure en 3 actes, CTA fort…
+              </div>
+              <div class="mac-typing"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="mac-inputbar">
+            <div class="mac-input-fake">Demandez à votre spécialiste…</div>
+            <div class="mac-send">↑</div>
+          </div>
+        </div>
+        <div class="mac-base"></div>
+        <div class="mac-stand"></div>
+      </div>
+      <div class="auto-bubbles-right">
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">📧</span>
+          <span>Ton Spécialiste Email gère tes séquences, relances et campagnes de nurturing</span>
+        </div>
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">🤝</span>
+          <span>Ton Spécialiste Vente rédige tes scripts, traite les objections et close tes deals</span>
+        </div>
+        <div class="auto-bubble auto-bubble-item">
+          <span class="auto-bubble-icon">📊</span>
+          <span>Ton Stratège crée tes plans de croissance, analyses de marché et roadmaps</span>
+        </div>
+      </div>
+    </div>
     <div class="reveal" style="text-align:center;margin-top:40px;">
       <p style="font-size:clamp(20px,3vw,32px);font-weight:800;color:var(--white);">Et 63 autres Spécialistes. Chaque fonction. Chaque jour. Un seul paiement.</p>
     </div>
   </div>
 </section>
-
-<style>
-  .float-bubble {
-    background: rgba(26,26,26,0.9); border: 1px solid rgba(212,160,23,0.2);
-    border-radius: 16px; padding: 14px 18px; font-size: 13px;
-    color: var(--gray2); display: flex; align-items: flex-start; gap: 10px;
-    line-height: 1.5; backdrop-filter: blur(8px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-  }
-  .float-bubble.visible { opacity: 1 !important; transform: translateX(0) !important; }
-  @media (max-width: 768px) {
-    
-    .float-bubbles-left, .float-bubbles-right {
-      position: static !important; transform: none !important; max-width: 100% !important; width: 100%;
-    }
-    .float-bubble { transform: translateY(16px) !important; }
-    .float-bubble.visible { transform: translateY(0) !important; }
-    .mac-body { width: 100% !important; }
-  }
-</style>
 
 <!-- ===== PHONE MOCKUP + URGENCY ===== -->
 <section class="section" style="background:linear-gradient(180deg, var(--bg) 0%, #1a0f00 100%);overflow:hidden;padding:80px 32px;">
