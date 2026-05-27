@@ -928,9 +928,19 @@
     @media (max-width: 1100px) { .floating-stage { flex-direction: column; gap: 30px; } .float-bubbles-left, .float-bubbles-right { flex-direction: row; max-width: 100%; flex-wrap: wrap; justify-content: center; } .float-bubble { max-width: 280px; } .mac-body { width: min(560px, 90vw); } }
     @media (max-width: 600px) { .mac-body { width: 95vw; } .float-bubble { font-size: 13px; padding: 12px; } }
     
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.03); }
+    }
     </style>
 </head>
 <body>
+
+<!-- ===== URGENCY BAR ===== -->
+<div id="urgency-bar" style="background:linear-gradient(90deg,#dc2626,#b91c1c);color:#fff;text-align:center;padding:11px 16px;font-size:14px;font-weight:700;letter-spacing:0.02em;position:relative;z-index:100;">
+  🔴 PRIX EN HAUSSE — Le Livre d'Or passe à <strong>97€</strong> dans moins de 72h &nbsp;·&nbsp; Verrouillez votre accès à <strong>57€</strong> maintenant
+  <a href="#pricing" style="color:#fde68a;text-decoration:underline;margin-left:12px;font-size:13px;">Voir les offres →</a>
+</div>
 
 <!-- ===== SCROLLING BANNER ===== -->
 <div class="marquee-wrap">
@@ -952,11 +962,11 @@
     <div class="hero-left reveal">
       <div class="hero-stars">
         <span class="stars">★★★★★</span>
-        <span>4.9 · 66 avis · Entrepreneurs francophones</span>
+        <span>4.9 · 66 avis · Salariés, freelances &amp; créateurs</span>
       </div>
       <p class="hero-pre">Le Livre d'Or des Spécialistes IA pour Claude</p>
       <h1 class="hero-h1">70 experts autonomes dans Claude. Votre équipe complète, à vie.</h1>
-      <p class="hero-subtitle">Marketing, vente, contenu, copywriting, stratégie, IA — 70 spécialistes pour multiplier votre production par 10 et réduire vos coûts de 50%</p>
+      <p class="hero-subtitle">Marketing, vente, contenu, copywriting, stratégie, IA — 70 spécialistes pour multiplier votre production par 10, que vous soyez salarié, freelance, étudiant ou créateur</p>
       <p class="hero-body">Un spécialiste pour chaque partie de votre business. Votre responsable réseaux sociaux, copywriter, closer, stratège, expert LinkedIn, rédacteur SEO, créateur de funnel, et 63 autres — tous prêts à bosser pour vous.</p>
 
       <a href="#pricing" class="cta-btn large">
@@ -1871,6 +1881,7 @@
       <!-- ============== TIER 2 — 57€ BEST VALUE ============== -->
       <div class="pricing-card reveal reveal-delay-1" style="background:linear-gradient(180deg,var(--bg3) 0%,#1f1a0e 100%);border:2px solid var(--gold);border-radius:20px;padding:36px 32px;position:relative;box-shadow:0 20px 60px rgba(232,184,75,0.15);">
         <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--gold),var(--gold-light));color:#1a1500;padding:6px 18px;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;">⭐ Best Value · -80% OFF</div>
+        <div style="position:absolute;top:14px;right:14px;background:linear-gradient(90deg,#dc2626,#b91c1c);color:#fff;padding:5px 12px;border-radius:8px;font-size:11px;font-weight:800;letter-spacing:0.06em;animation:pulse 2s infinite;">⚡ 57€ → 97€ bientôt</div>
 
         <div style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin-bottom:8px;margin-top:8px;">Le Livre d'Or Complet</div>
         <div style="font-size:13px;color:var(--gray2);margin-bottom:24px;">70 Spécialistes IA + Business Growth System for Claude</div>
