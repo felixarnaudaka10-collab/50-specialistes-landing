@@ -1013,13 +1013,16 @@
     var m = Math.floor((diff % 3600000) / 60000);
     var s = Math.floor((diff % 60000) / 1000);
     var pad = function(n) { return n < 10 ? '0' + n : '' + n; };
-    var mobileTime = document.getElementById('bar-mobile-time');
+    // Desktop
     var eh = document.getElementById('bar-hours');
     var em = document.getElementById('bar-mins');
     var es = document.getElementById('bar-secs');
     if (eh) eh.textContent = pad(h);
     if (em) em.textContent = pad(m);
     if (es) es.textContent = pad(s);
+    // Mobile compact
+    var mt = document.getElementById('bar-mobile-time');
+    if (mt) mt.textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
     // Pulse rouge quand < 1h
     var bar = document.getElementById('urgency-bar');
     if (bar && h < 1) {
