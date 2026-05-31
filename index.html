@@ -1162,38 +1162,156 @@
       <p class="section-body">Vos 20 ou 70 Spécialistes travaillent pendant que vous dormez.</p>
     </div>
 
-    <!-- Feed animé centré -->
+    <!-- Fenêtre Mac avec scroll CSS pur -->
     <div style="max-width:680px;margin:0 auto;position:relative;">
 
-      <!-- Fenêtre mac avec feed défilant -->
-      <div style="background:#111118;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5);">
-
-        <!-- Titlebar -->
-        <div style="background:#1a1a27;padding:12px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.06);">
-          <div style="width:12px;height:12px;border-radius:50%;background:#ef4444;"></div>
-          <div style="width:12px;height:12px;border-radius:50%;background:#f59e0b;"></div>
-          <div style="width:12px;height:12px;border-radius:50%;background:#22c55e;"></div>
-          <div style="margin-left:12px;font-size:12px;color:rgba(255,255,255,0.4);font-family:monospace;">Claude Cowork — Spécialistes IA</div>
-        </div>
-
-        <!-- Feed scrollable -->
-        <div id="conv-feed" style="height:480px;overflow:hidden;padding:24px 20px;display:flex;flex-direction:column;gap:0;position:relative;">
-          <!-- Les messages sont injectés par JS -->
-        </div>
-
-        <!-- Input bar -->
-        <div style="background:#1a1a27;border-top:1px solid rgba(255,255,255,0.06);padding:12px 16px;display:flex;align-items:center;gap:10px;">
-          <div style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,0.3);">Demandez à votre spécialiste…</div>
-          <div style="width:32px;height:32px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#1a1500;font-weight:900;cursor:pointer;">↑</div>
-        </div>
+      <!-- Barre titres mac -->
+      <div style="background:#1a1a27;padding:12px 16px;display:flex;align-items:center;gap:8px;border-radius:16px 16px 0 0;border:1px solid rgba(255,255,255,0.08);border-bottom:none;">
+        <div style="width:12px;height:12px;border-radius:50%;background:#ef4444;flex-shrink:0;"></div>
+        <div style="width:12px;height:12px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div>
+        <div style="width:12px;height:12px;border-radius:50%;background:#22c55e;flex-shrink:0;"></div>
+        <div style="margin-left:12px;font-size:12px;color:rgba(255,255,255,0.4);font-family:monospace;">Claude Cowork — Spécialistes IA</div>
       </div>
 
-      <!-- Fade top -->
-      <div style="position:absolute;top:48px;left:0;right:0;height:80px;background:linear-gradient(to bottom, var(--bg), transparent);pointer-events:none;z-index:2;border-radius:16px 16px 0 0;"></div>
-      <!-- Fade bottom -->
-      <div style="position:absolute;bottom:48px;left:0;right:0;height:80px;background:linear-gradient(to top, var(--bg), transparent);pointer-events:none;z-index:2;"></div>
+      <!-- Zone scroll avec masque haut/bas -->
+      <div style="background:#111118;border:1px solid rgba(255,255,255,0.08);border-top:none;border-radius:0 0 0 0;height:460px;overflow:hidden;position:relative;">
 
-    </div>
+        <!-- Masque fade haut -->
+        <div style="position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,#111118,transparent);z-index:3;pointer-events:none;"></div>
+        <!-- Masque fade bas -->
+        <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,#111118,transparent);z-index:3;pointer-events:none;"></div>
+
+        <!-- Track animé — contenu dupliqué pour loop sans saut -->
+        <div class="conv-track" style="display:flex;flex-direction:column;gap:0;padding:20px 20px 0;animation:convScroll 40s linear infinite;">
+
+          <!-- === BLOC 1 === -->
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Rédige une accroche pub Facebook pour mon offre à 97€</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">✍️</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Hugo — Copywriter</div>
+              🔥 "Tu passes encore 3h à écrire tes pubs ?" — Voici 5 accroches testées avec les meilleurs patterns de conversion : curiosité, douleur, preuve sociale…
+            </div>
+          </div>
+
+          <!-- === BLOC 2 === -->
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Crée une séquence email de bienvenue en 5 emails</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📧</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Nora — Email Marketing</div>
+              Séquence optimisée : J1 bienvenue + valeur, J3 cas client, J5 objections, J7 témoignage, J10 offre. Taux ouverture moyen attendu : 42%…
+            </div>
+          </div>
+
+          <!-- === BLOC 3 === -->
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Rédige un post LinkedIn viral sur la productivité IA</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#22c55e);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📊</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Léonard — LinkedIn</div>
+              "J'ai remplacé 3 outils SaaS par un seul prompt." — Hook testé, structure 5 points, storytelling + CTA newsletter. Portée estimée : 8-15K vues…
+            </div>
+          </div>
+
+          <!-- === BLOC 4 === -->
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Analyse mes 3 concurrents et trouve mon angle différenciant</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">🔍</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Étienne — Analyse Marché</div>
+              Angle différenciant : vous êtes le seul à proposer des spécialistes pré-configurés en français. Matrice SWOT + 4 opportunités inexploitées identifiées…
+            </div>
+          </div>
+
+          <!-- === BLOC 5 === -->
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Crée un script de closing pour mon offre à 997€</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">🤝</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Victor — Vente & Closing</div>
+              Ouverture : question miroir. Corps : 3 objections traitées (prix, timing, confiance). Closing : ancrage + garantie + urgence douce. Taux de conversion estimé +34%…
+            </div>
+          </div>
+
+          <!-- === BLOC 6 === -->
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Planifie mon contenu Instagram pour les 30 prochains jours</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📱</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Clara — Instagram</div>
+              30 posts planifiés : 12 Reels éducatifs, 10 carousels inspiration, 8 Stories coulisses. Tous avec hooks rédigés, légendes et hashtags. Meilleurs créneaux : mar/jeu 18h…
+            </div>
+          </div>
+
+          <!-- === BLOC 7 === -->
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Crée un workflow Make pour automatiser mon onboarding client</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#22c55e);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">⚙️</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Antoine — Automatisation</div>
+              Workflow 7 étapes : formulaire → Notion → email bienvenue → rappel J3 → accès produit → NPS J14 → upsell J30. Temps de mise en place estimé : 45 min…
+            </div>
+          </div>
+
+          <!-- === BLOC 8 === -->
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Optimise ma page de vente qui convertit à 0,8%</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:48px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ef4444,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">🎯</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Alice — Funnel & Conversion</div>
+              3 problèmes identifiés : hero trop générique, pas de preuve sociale above the fold, CTA flou. Voici les 5 modifications pour viser 3-4% de conversion…
+            </div>
+          </div>
+
+          <!-- === DUPLIQUÉ pour loop sans saut === -->
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Rédige une accroche pub Facebook pour mon offre à 97€</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">✍️</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Hugo — Copywriter</div>
+              🔥 "Tu passes encore 3h à écrire tes pubs ?" — Voici 5 accroches testées avec les meilleurs patterns de conversion : curiosité, douleur, preuve sociale…
+            </div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Crée une séquence email de bienvenue en 5 emails</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📧</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Nora — Email Marketing</div>
+              Séquence optimisée : J1 bienvenue + valeur, J3 cas client, J5 objections, J7 témoignage, J10 offre. Taux ouverture moyen attendu : 42%…
+            </div>
+          </div>
+
+        </div><!-- end conv-track -->
+      </div><!-- end scroll zone -->
+
+      <!-- Input bar -->
+      <div style="background:#1a1a27;border:1px solid rgba(255,255,255,0.08);border-top:none;border-radius:0 0 16px 16px;padding:12px 16px;display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,0.3);">Demandez à votre spécialiste…</div>
+        <div style="width:32px;height:32px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#1a1500;font-weight:900;">↑</div>
+      </div>
+
+    </div><!-- end mac wrapper -->
 
     <!-- Ligne finale -->
     <div class="reveal" style="text-align:center;margin-top:48px;">
@@ -1203,150 +1321,12 @@
 </section>
 
 <style>
-.conv-bubble { margin-bottom:0; opacity:0; transform:translateY(20px); transition:opacity 0.5s ease, transform 0.5s ease; }
-.conv-bubble.visible { opacity:1; transform:translateY(0); }
-.conv-user { display:flex; justify-content:flex-end; margin-bottom:10px; }
-.conv-user-msg { background:var(--gold); color:#1a1500; padding:10px 16px; border-radius:16px 16px 4px 16px; font-size:13px; font-weight:600; max-width:80%; line-height:1.5; }
-.conv-ai { display:flex; align-items:flex-start; gap:10px; margin-bottom:20px; }
-.conv-ai-avatar { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#6366f1,#8b5cf6); display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; margin-top:2px; }
-.conv-ai-bubble { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); border-radius:4px 16px 16px 16px; padding:12px 16px; font-size:13px; color:rgba(255,255,255,0.85); max-width:85%; line-height:1.6; }
-.conv-ai-name { font-size:11px; font-weight:800; color:var(--gold-light); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:6px; }
-.conv-typing { display:flex; gap:4px; align-items:center; padding:8px 0; }
-.conv-typing span { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); animation:convdot 1.2s infinite; }
-.conv-typing span:nth-child(2) { animation-delay:0.2s; }
-.conv-typing span:nth-child(3) { animation-delay:0.4s; }
-@keyframes convdot { 0%,60%,100%{transform:translateY(0);opacity:0.3;} 30%{transform:translateY(-4px);opacity:1;} }
+@keyframes convScroll {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+.conv-track:hover { animation-play-state: paused; }
 </style>
-
-<script>
-(function(){
-  var conversations = [
-    {emoji:'✍️', name:'Hugo — Copywriter', user:'Rédige une accroche pub Facebook pour mon offre à 97€', reply:'🔥 "Tu passes encore 3h à écrire tes pubs ?" — Voici 5 accroches testées avec les meilleurs patterns de conversion : curiosité, douleur, preuve sociale…'},
-    {emoji:'📧', name:'Nora — Email Marketing', user:'Crée une séquence email de bienvenue en 5 emails', reply:'Voici votre séquence optimisée : J1 bienvenue + valeur, J3 cas client, J5 objections, J7 témoignage, J10 offre. Taux ouverture moyen attendu : 42%…'},
-    {emoji:'📊', name:'Léonard — LinkedIn', user:'Rédige un post LinkedIn viral sur la productivité IA', reply:'"J'ai remplacé 3 outils SaaS par un seul prompt." — Hook testé, structure en 5 points, storytelling personnel + CTA newsletter. Portée estimée : 8-15K vues…'},
-    {emoji:'🔍', name:'Étienne — Analyse Marché', user:'Analyse mes 3 concurrents principaux et trouve mon angle', reply:'Angle différenciant identifié : vous êtes le seul à proposer des spécialistes pré-configurés en français. Matrice SWOT + 4 opportunités inexploitées…'},
-    {emoji:'🤝', name:'Victor — Vente', user:'Crée un script de closing pour mon offre à 997€', reply:'Ouverture : question miroir. Corps : 3 objections traitées (prix, timing, confiance). Closing : ancrage + garantie + urgence douce. Taux de conversion estimé +34%…'},
-    {emoji:'📱', name:'Clara — Instagram', user:'Planifie mon contenu Instagram pour les 30 prochains jours', reply:'30 posts : 12 Reels éducatifs, 10 carousels inspiration, 8 Stories coulisses. Tous avec hooks rédigés, légendes et hashtags. Meilleurs créneaux : mar/jeu 18h…'},
-    {emoji:'⚙️', name:'Antoine — Automatisation', user:'Crée un workflow Make pour mon onboarding client', reply:'Workflow 7 étapes : formulaire → Notion → email de bienvenue → rappel J3 → accès produit → NPS J14 → upsell J30. Temps de mise en place estimé : 45 min…'},
-    {emoji:'🎯', name:'Alice — Funnel', user:'Optimise ma page de vente qui convertit à 0,8%', reply:'3 problèmes identifiés : hero trop générique, pas de preuve sociale above the fold, CTA flou. Voici les 5 modifications à faire pour viser 3-4% de conversion…'},
-  ];
-
-  var feed = document.getElementById('conv-feed');
-  if(!feed) return;
-
-  var currentConv = 0;
-  var allNodes = [];
-
-  function createUserBubble(text) {
-    var wrap = document.createElement('div');
-    wrap.className = 'conv-bubble conv-user';
-    var msg = document.createElement('div');
-    msg.className = 'conv-user-msg';
-    msg.textContent = text;
-    wrap.appendChild(msg);
-    return wrap;
-  }
-
-  function createTyping() {
-    var wrap = document.createElement('div');
-    wrap.className = 'conv-bubble conv-ai';
-    var av = document.createElement('div');
-    av.className = 'conv-ai-avatar';
-    av.textContent = '✦';
-    var bub = document.createElement('div');
-    bub.className = 'conv-ai-bubble';
-    bub.innerHTML = '<div class="conv-typing"><span></span><span></span><span></span></div>';
-    wrap.appendChild(av);
-    wrap.appendChild(bub);
-    return wrap;
-  }
-
-  function createAiBubble(emoji, name, text) {
-    var wrap = document.createElement('div');
-    wrap.className = 'conv-bubble conv-ai';
-    var av = document.createElement('div');
-    av.className = 'conv-ai-avatar';
-    av.textContent = emoji;
-    var bub = document.createElement('div');
-    bub.className = 'conv-ai-bubble';
-    bub.innerHTML = '<div class="conv-ai-name">' + name + '</div>' + text;
-    wrap.appendChild(av);
-    wrap.appendChild(bub);
-    return wrap;
-  }
-
-  function scrollToBottom() {
-    feed.scrollTop = feed.scrollHeight;
-  }
-
-  function showBubble(el, delay) {
-    setTimeout(function() {
-      feed.appendChild(el);
-      allNodes.push(el);
-      setTimeout(function() { el.classList.add('visible'); scrollToBottom(); }, 50);
-
-      // Si trop de bulles, supprimer les anciennes doucement
-      if(allNodes.length > 12) {
-        var old = allNodes.shift();
-        old.style.transition = 'opacity 0.4s';
-        old.style.opacity = '0';
-        setTimeout(function() { if(old.parentNode) old.parentNode.removeChild(old); }, 400);
-      }
-    }, delay);
-  }
-
-  function runNextConv() {
-    var c = conversations[currentConv % conversations.length];
-    currentConv++;
-
-    // Message utilisateur
-    var userBub = createUserBubble(c.user);
-    showBubble(userBub, 0);
-
-    // Typing indicator
-    var typing = createTyping();
-    showBubble(typing, 600);
-
-    // Réponse IA (remplace le typing)
-    setTimeout(function() {
-      if(typing.parentNode) typing.parentNode.removeChild(typing);
-      var idx = allNodes.indexOf(typing);
-      if(idx > -1) allNodes.splice(idx, 1);
-      var aiBub = createAiBubble(c.emoji, c.name, c.reply);
-      showBubble(aiBub, 0);
-
-      // Prochaine conversation après un délai
-      setTimeout(runNextConv, 3500);
-    }, 1800);
-  }
-
-  // Démarrer dès que possible
-  var started = false;
-  function tryStart() {
-    if(started) return;
-    started = true;
-    setTimeout(runNextConv, 300);
-  }
-
-  // Essai 1 : IntersectionObserver avec seuil très bas
-  var observer = new IntersectionObserver(function(entries) {
-    if(entries[0].isIntersecting) { tryStart(); }
-  }, {threshold: 0.01, rootMargin: '200px'});
-  observer.observe(feed);
-
-  // Essai 2 : fallback au scroll
-  window.addEventListener('scroll', function onScroll() {
-    var rect = feed.getBoundingClientRect();
-    if(rect.top < window.innerHeight + 200) {
-      tryStart();
-      window.removeEventListener('scroll', onScroll);
-    }
-  }, {passive: true});
-
-  // Essai 3 : démarrer après 1s si toujours pas lancé (section déjà visible au chargement)
-  setTimeout(tryStart, 1000);
-})();
-</script>
 
 <hr class="divider" />
 
