@@ -947,7 +947,8 @@
   box-shadow:0 2px 20px rgba(220,38,38,0.6);
   border-bottom:2px solid rgba(255,255,255,0.15);
 ">
-  <div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:10px 20px;flex-wrap:wrap;">
+  <!-- Desktop layout -->
+  <div class="urgency-desktop" style="display:flex;align-items:center;justify-content:center;gap:16px;padding:10px 20px;flex-wrap:wrap;">
     <span style="font-size:13px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#fca5a5;">⚠️ PRIX EN HAUSSE</span>
     <span style="font-size:14px;font-weight:600;color:#fff;">Le Livre d'Or passe de <span style="text-decoration:line-through;opacity:0.7;">57€</span> à <strong style="color:#fde68a;font-size:16px;">97€</strong> dans :</span>
     <div id="countdown-bar" style="display:flex;gap:6px;align-items:center;">
@@ -966,22 +967,30 @@
         <div style="font-size:9px;color:#fca5a5;letter-spacing:0.06em;text-transform:uppercase;">secondes</div>
       </div>
     </div>
-    <a href="#pricing" style="
-      background:#fde68a;
-      color:#1a1500;
-      font-weight:800;
-      font-size:13px;
-      padding:8px 18px;
-      border-radius:8px;
-      text-decoration:none;
-      letter-spacing:0.04em;
-      white-space:nowrap;
-      transition:transform 0.15s,box-shadow 0.15s;
-      box-shadow:0 2px 8px rgba(0,0,0,0.3);
-    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    <a href="#pricing" style="background:#fde68a;color:#1a1500;font-weight:800;font-size:13px;padding:8px 18px;border-radius:8px;text-decoration:none;letter-spacing:0.04em;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
       🔒 Bloquer à 57€ →
     </a>
   </div>
+  <!-- Mobile layout compact -->
+  <div class="urgency-mobile" style="display:none;align-items:center;justify-content:space-between;padding:7px 12px;gap:8px;">
+    <div style="display:flex;flex-direction:column;gap:1px;">
+      <span style="font-size:10px;font-weight:800;color:#fca5a5;letter-spacing:0.06em;text-transform:uppercase;">⚠️ Prix en hausse</span>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <span style="font-size:11px;color:#fff;font-weight:600;">57€ → <strong style="color:#fde68a;">97€</strong> dans</span>
+        <span id="bar-mobile-time" style="font-size:11px;font-weight:900;color:#fff;font-variant-numeric:tabular-nums;background:rgba(0,0,0,0.35);border-radius:4px;padding:2px 6px;">47:59:59</span>
+      </div>
+    </div>
+    <a href="#pricing" style="background:#fde68a;color:#1a1500;font-weight:800;font-size:11px;padding:7px 14px;border-radius:7px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
+      🔒 57€ →
+    </a>
+  </div>
+  <style>
+  @media (max-width: 640px) {
+    .urgency-desktop { display: none !important; }
+    .urgency-mobile { display: flex !important; }
+    #urgency-spacer { height: 44px !important; }
+  }
+  </style>
 </div>
 <!-- Spacer pour compenser la barre fixed -->
 <div style="height:72px;" id="urgency-spacer"></div>
@@ -1004,6 +1013,7 @@
     var m = Math.floor((diff % 3600000) / 60000);
     var s = Math.floor((diff % 60000) / 1000);
     var pad = function(n) { return n < 10 ? '0' + n : '' + n; };
+    var mobileTime = document.getElementById('bar-mobile-time');
     var eh = document.getElementById('bar-hours');
     var em = document.getElementById('bar-mins');
     var es = document.getElementById('bar-secs');
@@ -1186,25 +1196,25 @@
 
           <!-- === BLOC 1 === -->
           <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Rédige une accroche pub Facebook pour mon offre à 97€</div>
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Écris mes 5 emails de bienvenue — j'ai pas le temps</div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
             <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">✍️</div>
             <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Hugo — Copywriter</div>
-              🔥 "Tu passes encore 3h à écrire tes pubs ?" — Voici 5 accroches testées avec les meilleurs patterns de conversion : curiosité, douleur, preuve sociale…
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Clara — Instagram & Reels</div>
+              Séquence en 5 emails prête. Email 1 : bienvenue + valeur immédiate. Email 3 : preuve sociale. Email 5 : première offre. Résultat moyen sur ce template : +38% de taux d'ouverture vs une séquence classique…
             </div>
           </div>
 
           <!-- === BLOC 2 === -->
           <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Crée une séquence email de bienvenue en 5 emails</div>
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Je veux 10 idées de Reels pour cette semaine</div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
             <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📧</div>
             <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Nora — Email Marketing</div>
-              Séquence optimisée : J1 bienvenue + valeur, J3 cas client, J5 objections, J7 témoignage, J10 offre. Taux ouverture moyen attendu : 42%…
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Clara — Instagram & Reels</div>
+              10 concepts Reels formatés pour l'algorithme 2026 : 4 hooks "avant/après", 3 tutoriels rapides, 2 controverses de niche, 1 storytelling personnel. Les hooks sont rédigés, les scripts aussi…
             </div>
           </div>
 
@@ -1216,7 +1226,7 @@
             <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#22c55e);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📊</div>
             <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
               <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Léonard — LinkedIn</div>
-              "J'ai remplacé 3 outils SaaS par un seul prompt." — Hook testé, structure 5 points, storytelling + CTA newsletter. Portée estimée : 8-15K vues…
+              "J'ai récupéré 2h par jour en automatisant mes tâches admin avec l'IA." — Hook top 1% LinkedIn, structure 5 points + storytelling. Portée estimée sur ce format : 8-15K vues…
             </div>
           </div>
 
@@ -1234,13 +1244,13 @@
 
           <!-- === BLOC 5 === -->
           <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Crée un script de closing pour mon offre à 997€</div>
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Mon prospect dit "c'est trop cher" — comment je réponds ?</div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
             <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">🤝</div>
             <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
               <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Victor — Vente & Closing</div>
-              Ouverture : question miroir. Corps : 3 objections traitées (prix, timing, confiance). Closing : ancrage + garantie + urgence douce. Taux de conversion estimé +34%…
+              3 réponses testées à l'objection prix : 1) Recadrage ROI ("Combien vous coûte de ne pas le faire ?"), 2) Comparaison temporelle, 3) Garantie + urgence. Script complet prêt à copier-coller…
             </div>
           </div>
 
@@ -1258,25 +1268,25 @@
 
           <!-- === BLOC 7 === -->
           <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Crée un workflow Make pour automatiser mon onboarding client</div>
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Automatise mes tâches admin — je perds 3h/jour dessus</div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
             <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#22c55e);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">⚙️</div>
             <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
               <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Antoine — Automatisation</div>
-              Workflow 7 étapes : formulaire → Notion → email bienvenue → rappel J3 → accès produit → NPS J14 → upsell J30. Temps de mise en place estimé : 45 min…
+              Identifié : 6 tâches automatisables immédiatement (emails récurrents, rapports hebdo, relances prospects, onboarding client, facturation, partage de contenus). Gain estimé : 2h30/jour soit 12h/semaine récupérées…
             </div>
           </div>
 
           <!-- === BLOC 8 === -->
           <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Optimise ma page de vente qui convertit à 0,8%</div>
+            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Ma page de vente convertit à 0,8% — qu'est-ce qui cloche ?</div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:48px;">
             <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ef4444,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">🎯</div>
             <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
               <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Alice — Funnel & Conversion</div>
-              3 problèmes identifiés : hero trop générique, pas de preuve sociale above the fold, CTA flou. Voici les 5 modifications pour viser 3-4% de conversion…
+              3 blocages identifiés : (1) le hero parle de vous, pas du client, (2) 0 preuve sociale dans les 400px visibles, (3) CTA "En savoir plus" tue l'intention d'achat. 5 corrections concrètes pour passer à 2,5-4%…
             </div>
           </div>
 
@@ -1287,7 +1297,7 @@
           <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
             <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">✍️</div>
             <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Hugo — Copywriter</div>
+              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Nora — Email Marketing</div>
               🔥 "Tu passes encore 3h à écrire tes pubs ?" — Voici 5 accroches testées avec les meilleurs patterns de conversion : curiosité, douleur, preuve sociale…
             </div>
           </div>
