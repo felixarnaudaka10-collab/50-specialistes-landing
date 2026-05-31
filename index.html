@@ -1320,15 +1320,31 @@
     }, 1800);
   }
 
-  // Démarrer quand la section est visible
+  // Démarrer dès que possible
   var started = false;
+  function tryStart() {
+    if(started) return;
+    started = true;
+    setTimeout(runNextConv, 300);
+  }
+
+  // Essai 1 : IntersectionObserver avec seuil très bas
   var observer = new IntersectionObserver(function(entries) {
-    if(entries[0].isIntersecting && !started) {
-      started = true;
-      setTimeout(runNextConv, 500);
-    }
-  }, {threshold: 0.2});
+    if(entries[0].isIntersecting) { tryStart(); }
+  }, {threshold: 0.01, rootMargin: '200px'});
   observer.observe(feed);
+
+  // Essai 2 : fallback au scroll
+  window.addEventListener('scroll', function onScroll() {
+    var rect = feed.getBoundingClientRect();
+    if(rect.top < window.innerHeight + 200) {
+      tryStart();
+      window.removeEventListener('scroll', onScroll);
+    }
+  }, {passive: true});
+
+  // Essai 3 : démarrer après 1s si toujours pas lancé (section déjà visible au chargement)
+  setTimeout(tryStart, 1000);
 })();
 </script>
 
