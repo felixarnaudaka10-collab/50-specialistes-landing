@@ -1012,7 +1012,7 @@
 <script>
 (function() {
   // Countdown 48h depuis la première visite (localStorage)
-  var KEY = 'urg_end_v2';
+  var KEY = 'urg_end_v3';
   var end = localStorage.getItem(KEY);
   if (!end) {
     end = Date.now() + 48 * 60 * 60 * 1000;
@@ -1431,7 +1431,7 @@
         </div>
         <script>
         (function(){
-          var KEY='urg_end_v2';
+          var KEY='urg_end_v3';
           var end=localStorage.getItem(KEY);
           if(!end){end=Date.now()+48*60*60*1000;localStorage.setItem(KEY,end);}else{end=parseInt(end);}
           function up(){
