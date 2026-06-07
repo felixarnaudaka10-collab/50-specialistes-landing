@@ -1011,18 +1011,25 @@
 
 <script>
 (function() {
-  // Countdown 48h depuis la première visite (localStorage)
-  var KEY = 'urg_end_v3';
+  // Countdown 48h evergreen — auto-reset quand expiré
+  var KEY = 'urg_end_v4';
+  var DURATION = 48 * 60 * 60 * 1000;
   var end = localStorage.getItem(KEY);
-  if (!end) {
-    end = Date.now() + 48 * 60 * 60 * 1000;
+  if (!end || parseInt(end) <= Date.now()) {
+    end = Date.now() + DURATION;
     localStorage.setItem(KEY, end);
   } else {
     end = parseInt(end);
   }
   
   function update() {
-    var diff = Math.max(0, end - Date.now());
+    var diff = end - Date.now();
+    if (diff <= 0) {
+      // Auto-reset : repart à 48h
+      end = Date.now() + DURATION;
+      localStorage.setItem(KEY, end);
+      diff = DURATION;
+    }
     var h = Math.floor(diff / 3600000);
     var m = Math.floor((diff % 3600000) / 60000);
     var s = Math.floor((diff % 60000) / 1000);
@@ -1431,11 +1438,13 @@
         </div>
         <script>
         (function(){
-          var KEY='urg_end_v3';
+          var KEY='urg_end_v4';
+          var DURATION=48*60*60*1000;
           var end=localStorage.getItem(KEY);
-          if(!end){end=Date.now()+48*60*60*1000;localStorage.setItem(KEY,end);}else{end=parseInt(end);}
+          if(!end||parseInt(end)<=Date.now()){end=Date.now()+DURATION;localStorage.setItem(KEY,end);}else{end=parseInt(end);}
           function up(){
-            var diff=Math.max(0,end-Date.now());
+            var diff=end-Date.now();
+            if(diff<=0){end=Date.now()+DURATION;localStorage.setItem(KEY,end);diff=DURATION;}
             var h=Math.floor(diff/3600000);
             var m=Math.floor((diff%3600000)/60000);
             var s=Math.floor((diff%60000)/1000);
