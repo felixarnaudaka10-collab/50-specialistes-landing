@@ -1191,179 +1191,88 @@
   </div>
 </div>
 
-<!-- ===== AUTOMATE SECTION ===== -->
-<section class="section" style="background:var(--bg);overflow:hidden;padding:80px 20px;">
+<!-- ===== AUTOMATE SECTION (cartes-résultats premium) ===== -->
+<section class="section spec-grid-section" style="background:var(--bg);overflow:hidden;padding:80px 20px;">
   <div class="section-inner">
-    <div class="section-center reveal" style="margin-bottom:56px;">
-      <p class="section-label">Automatisation</p>
+    <div class="section-center reveal" style="margin-bottom:48px;">
+      <p class="section-label">Vos Spécialistes au travail</p>
       <h2 class="section-h2">Voici une partie du travail fastidieux que vous allez automatiser</h2>
-      <p class="section-body">Vos 20 ou 70 Spécialistes travaillent pendant que vous dormez.</p>
+      <p class="section-body">Chaque Spécialiste connaît déjà son rôle et votre contexte. Vous demandez, il livre.</p>
     </div>
 
-    <!-- Fenêtre Mac avec scroll CSS pur -->
-    <div style="max-width:680px;margin:0 auto;position:relative;">
+    <!-- Carte vedette : Automatisation -->
+    <div class="reveal spec-feature" style="max-width:1040px;margin:0 auto 16px;background:rgba(232,184,75,0.05);border:1px solid var(--gold-border);border-radius:20px;padding:34px 32px;display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+      <div style="width:64px;height:64px;border-radius:16px;background:rgba(232,184,75,0.12);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;">⚙️</div>
+      <div style="flex:1;min-width:240px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
+          <span style="font-size:13px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;">Ton spécialiste Automatisation</span>
+          <span style="font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#1a1500;background:var(--gold);padding:3px 9px;border-radius:999px;">Le plus demandé</span>
+        </div>
+        <div style="font-size:16px;color:rgba(255,255,255,0.88);line-height:1.65;">Connecte Claude à tes outils — Gmail, Notion, Drive, ton CRM — et construit des workflows qui s'exécutent <strong style="color:var(--white);">tout seuls</strong>. Tes process tournent même quand tu dors.</div>
+      </div>
+    </div>
 
-      <!-- Barre titres mac -->
-      <div style="background:#1a1a27;padding:12px 16px;display:flex;align-items:center;gap:8px;border-radius:16px 16px 0 0;border:1px solid rgba(255,255,255,0.08);border-bottom:none;">
-        <div style="width:12px;height:12px;border-radius:50%;background:#ef4444;flex-shrink:0;"></div>
-        <div style="width:12px;height:12px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div>
-        <div style="width:12px;height:12px;border-radius:50%;background:#22c55e;flex-shrink:0;"></div>
-        <div style="margin-left:12px;font-size:12px;color:rgba(255,255,255,0.4);font-family:monospace;">Claude Cowork · Spécialistes IA</div>
+    <div class="reveal spec-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;max-width:1040px;margin:0 auto;">
+
+      <div class="spec-card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .25s ease,transform .25s ease;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;border-radius:12px;background:rgba(232,184,75,0.12);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0;">✍️</div>
+          <div style="font-size:12px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;">Ton Copywriter</div>
+        </div>
+        <div style="font-size:15px;color:rgba(255,255,255,0.82);line-height:1.6;">Écrit tes pubs, emails et pages de vente — dans <strong style="color:var(--white);">ta</strong> voix, pas celle d'une IA.</div>
       </div>
 
-      <!-- Zone scroll avec masque haut/bas -->
-      <div style="background:#111118;border:1px solid rgba(255,255,255,0.08);border-top:none;border-radius:0 0 0 0;height:460px;overflow:hidden;position:relative;">
-
-        <!-- Masque fade haut -->
-        <div style="position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,#111118,transparent);z-index:3;pointer-events:none;"></div>
-        <!-- Masque fade bas -->
-        <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,#111118,transparent);z-index:3;pointer-events:none;"></div>
-
-        <!-- Track animé : contenu dupliqué pour loop sans saut -->
-        <div class="conv-track" style="display:flex;flex-direction:column;gap:0;padding:20px 20px 0;animation:convScroll 40s linear infinite;">
-
-          <!-- === BLOC 1 === -->
-          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Écris mes 5 emails de bienvenue, j'ai pas le temps</div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">✍️</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Clara · Instagram & Reels</div>
-              Séquence en 5 emails prête. Email 1 : bienvenue + valeur immédiate. Email 3 : preuve sociale. Email 5 : première offre. Résultat moyen sur ce template : +38% de taux d'ouverture vs une séquence classique…
-            </div>
-          </div>
-
-          <!-- === BLOC 2 === -->
-          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Je veux 10 idées de Reels pour cette semaine</div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📧</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Clara · Instagram & Reels</div>
-              10 concepts Reels formatés pour l'algorithme 2026 : 4 hooks "avant/après", 3 tutoriels rapides, 2 controverses de niche, 1 storytelling personnel. Les hooks sont rédigés, les scripts aussi…
-            </div>
-          </div>
-
-          <!-- === BLOC 3 === -->
-          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Rédige un post LinkedIn viral sur la productivité IA</div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#22c55e);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📊</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Léonard · LinkedIn</div>
-              "J'ai récupéré 2h par jour en automatisant mes tâches admin avec l'IA." Hook top 1% LinkedIn, structure 5 points + storytelling. Portée estimée sur ce format : 8-15K vues…
-            </div>
-          </div>
-
-          <!-- === BLOC 4 === -->
-          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Analyse mes 3 concurrents et trouve mon angle différenciant</div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">🔍</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Étienne · Analyse Marché</div>
-              Angle différenciant : vous êtes le seul à proposer des spécialistes pré-configurés en français. Matrice SWOT + 4 opportunités inexploitées identifiées…
-            </div>
-          </div>
-
-          <!-- === BLOC 5 === -->
-          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Mon prospect dit "c'est trop cher" : comment je réponds ?</div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">🤝</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Victor · Vente & Closing</div>
-              3 réponses testées à l'objection prix : 1) Recadrage ROI ("Combien vous coûte de ne pas le faire ?"), 2) Comparaison temporelle, 3) Garantie + urgence. Script complet prêt à copier-coller…
-            </div>
-          </div>
-
-          <!-- === BLOC 6 === -->
-          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Planifie mon contenu Instagram pour les 30 prochains jours</div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📱</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Clara : Instagram</div>
-              30 posts planifiés : 12 Reels éducatifs, 10 carousels inspiration, 8 Stories coulisses. Tous avec hooks rédigés, légendes et hashtags. Meilleurs créneaux : mar/jeu 18h…
-            </div>
-          </div>
-
-          <!-- === BLOC 7 === -->
-          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Automatise mes tâches admin : je perds 3h/jour dessus</div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#22c55e);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">⚙️</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Antoine · Automatisation</div>
-              Identifié : 6 tâches automatisables immédiatement (emails récurrents, rapports hebdo, relances prospects, onboarding client, facturation, partage de contenus). Gain estimé : 2h30/jour soit 12h/semaine récupérées…
-            </div>
-          </div>
-
-          <!-- === BLOC 8 === -->
-          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Ma page de vente convertit à 0,8% : qu'est-ce qui cloche ?</div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:48px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ef4444,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">🎯</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Alice · Funnel & Conversion</div>
-              3 blocages identifiés : (1) le hero parle de vous, pas du client, (2) 0 preuve sociale dans les 400px visibles, (3) CTA "En savoir plus" tue l'intention d'achat. 5 corrections concrètes pour passer à 2,5-4%…
-            </div>
-          </div>
-
-          <!-- === DUPLIQUÉ pour loop sans saut === -->
-          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Rédige une accroche pub Facebook pour mon offre à 97€</div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">✍️</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Nora · Email Marketing</div>
-              🔥 "Tu passes encore 3h à écrire tes pubs ?" : Voici 5 accroches testées avec les meilleurs patterns de conversion : curiosité, douleur, preuve sociale…
-            </div>
-          </div>
-          <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
-            <div style="background:var(--gold);color:#1a1500;padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:13px;font-weight:600;max-width:80%;line-height:1.5;">Crée une séquence email de bienvenue en 5 emails</div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">📧</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:4px 16px 16px 16px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,0.85);max-width:85%;line-height:1.6;">
-              <div style="font-size:11px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Nora · Email Marketing</div>
-              Séquence optimisée : J1 bienvenue + valeur, J3 cas client, J5 objections, J7 témoignage, J10 offre. Taux ouverture moyen attendu : 42%…
-            </div>
-          </div>
-
-        </div><!-- end conv-track -->
-      </div><!-- end scroll zone -->
-
-      <!-- Input bar -->
-      <div style="background:#1a1a27;border:1px solid rgba(255,255,255,0.08);border-top:none;border-radius:0 0 16px 16px;padding:12px 16px;display:flex;align-items:center;gap:10px;">
-        <div style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,0.3);">Demandez à votre spécialiste…</div>
-        <div style="width:32px;height:32px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#1a1500;font-weight:900;">↑</div>
+      <div class="spec-card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .25s ease,transform .25s ease;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;border-radius:12px;background:rgba(232,184,75,0.12);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0;">📊</div>
+          <div style="font-size:12px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;">Ton Stratège</div>
+        </div>
+        <div style="font-size:15px;color:rgba(255,255,255,0.82);line-height:1.6;">Construit tes plans de croissance, analyses de marché et roadmaps de lancement, prêts à exécuter.</div>
       </div>
 
-    </div><!-- end mac wrapper -->
+      <div class="spec-card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .25s ease,transform .25s ease;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;border-radius:12px;background:rgba(232,184,75,0.12);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0;">🤝</div>
+          <div style="font-size:12px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;">Ton Commercial</div>
+        </div>
+        <div style="font-size:15px;color:rgba(255,255,255,0.82);line-height:1.6;">Rédige tes scripts, gère les objections et structure tes offres pour closer.</div>
+      </div>
 
-    <!-- Ligne finale -->
-    <div class="reveal" style="text-align:center;margin-top:48px;">
-      <p style="font-size:clamp(18px,2.5vw,28px);font-weight:800;color:var(--white);">Et 63 autres Spécialistes. Chaque fonction. Chaque jour. Un seul paiement.</p>
+      <div class="spec-card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .25s ease,transform .25s ease;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;border-radius:12px;background:rgba(232,184,75,0.12);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0;">📧</div>
+          <div style="font-size:12px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;">Ton spécialiste Email</div>
+        </div>
+        <div style="font-size:15px;color:rgba(255,255,255,0.82);line-height:1.6;">Monte tes séquences de bienvenue, relances et campagnes de nurture, prêtes à envoyer.</div>
+      </div>
+
+      <div class="spec-card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .25s ease,transform .25s ease;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;border-radius:12px;background:rgba(232,184,75,0.12);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0;">🗂️</div>
+          <div style="font-size:12px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;">Tes Ops &amp; Systèmes</div>
+        </div>
+        <div style="font-size:15px;color:rgba(255,255,255,0.82);line-height:1.6;">Documente tes SOP, process et systèmes — plus rien ne reste coincé dans ta tête.</div>
+      </div>
+
+      <div class="spec-card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .25s ease,transform .25s ease;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;border-radius:12px;background:rgba(232,184,75,0.12);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0;">🔍</div>
+          <div style="font-size:12px;font-weight:800;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;">Ton Chercheur</div>
+        </div>
+        <div style="font-size:15px;color:rgba(255,255,255,0.82);line-height:1.6;">Décortique concurrents, marché et angles morts — en quelques minutes, pas en une journée.</div>
+      </div>
+
+    </div>
+
+    <div class="reveal" style="text-align:center;margin-top:44px;">
+      <p style="font-size:clamp(18px,2.5vw,28px);font-weight:800;color:var(--white);">Et 64 autres Spécialistes. Chaque fonction. Chaque jour. Un seul paiement.</p>
     </div>
   </div>
 </section>
-
 <style>
-@keyframes convScroll {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-.conv-track:hover { animation-play-state: paused; }
+.spec-card:hover{border-color:var(--gold-border)!important;transform:translateY(-3px);}
+.spec-feature{transition:transform .25s ease;}
+.spec-feature:hover{transform:translateY(-3px);}
 </style>
 
 <hr class="divider" />
